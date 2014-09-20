@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CASObjectState.h"
 
-@interface CASToken : NSObject
+@interface CASToken : NSObject <CASObjectState>
 
 @property (nonatomic, strong) NSString *token;
 @property (nonatomic, strong) NSDate *expiryDate;

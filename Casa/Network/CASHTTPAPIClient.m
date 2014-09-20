@@ -26,6 +26,8 @@ typedef enum : NSUInteger {
     HTTPRequestMethodDelete
 } HTTPRequestMethod;
 
+static NSString * const CASExpiryDateKey = @"CASExpiryDateKey";
+
 @interface CASHTTPAPIClient ()
 
 @property (nonatomic, strong) AFHTTPRequestOperationManager *httpRequestOperationManager;
@@ -40,6 +42,8 @@ typedef enum : NSUInteger {
     if (self = [super init]) {
         NSURL *baseUrl = [NSURL URLWithString:@"http://casa.tpcstld.me"];
         _httpRequestOperationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseUrl];
+        
+        self.token = [CASToken loadState];
     }
     return self;
 }
@@ -126,8 +130,9 @@ typedef enum : NSUInteger {
         token.token = responseJson[CASAPITokenKey];
         token.expiryDate = [[NSDate date] dateByAddingTimeInterval:secondsUntilExpiry];
         self.token = token;
+        [token saveState];
         
-        return nil;
+        return task;
     }];
 }
 
@@ -135,8 +140,9 @@ typedef enum : NSUInteger {
 {
     return [[self taskWithMethod:HTTPRequestMethodDelete path:API_AUTHENTICATE params:nil] continueWithSuccessBlock:^id(BFTask *task) {
         self.token = nil;
+        [CASToken removeState];
         
-        return nil;
+        return task;
     }];
 }
 

@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CASObjectState.h"
 
-@interface CASUser : NSObject
+@interface CASUser : NSObject <CASObjectState>
 
+@property (nonatomic, strong) NSNumber *userId;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *email;
 

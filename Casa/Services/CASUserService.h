@@ -1,5 +1,5 @@
 //
-//  CASAuthenticationService.h
+//  CASUserService.h
 //  Casa
 //
 //  Created by Justin Sacbibit on 2014-09-20.
@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @protocol CASAPIClient;
+@class CASUser;
 
-@interface CASAuthenticationService : NSObject
+@interface CASUserService : NSObject
 
-+ (instancetype)authenticationServiceWithApiClient:(id<CASAPIClient>)apiClient;
+@property (nonatomic, strong, readonly) CASUser *loggedInUser;
+
 - (instancetype)initWithApiClient:(id<CASAPIClient>)apiClient;
 
 - (BFTask *)loginWithEmail:(NSString *)email password:(NSString *)password;

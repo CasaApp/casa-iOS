@@ -8,24 +8,27 @@
 
 #import <Foundation/Foundation.h>
 
-NSString * const CASAPILimitKey = @"limit";
-NSString * const CASAPIOffsetKey = @"offset";
+extern NSString * const CASAPILimitKey;
+extern NSString * const CASAPIOffsetKey;
 
-NSString * const CASAPILatitudeKey = @"latitude";
-NSString * const CASAPILongitudeKey = @"longitude";
-NSString * const CASAPIRadiusKey = @"radius";
-NSString * const CASAPIMinPriceKey = @"minimum_price";
-NSString * const CASAPIMaxPriceKey = @"maximum_price";
-NSString * const CASAPITagsKey = @"tags";
-NSString * const CASAPIAddressKey = @"address";
+extern NSString * const CASAPILatitudeKey;
+extern NSString * const CASAPILongitudeKey;
+extern NSString * const CASAPIRadiusKey;
+extern NSString * const CASAPIMinPriceKey;
+extern NSString * const CASAPIMaxPriceKey;
+extern NSString * const CASAPITagsKey;
+extern NSString * const CASAPIAddressKey;
 
-NSString * const CASAPIEmailKey = @"email";
-NSString * const CASAPIPasswordKey = @"password";
+extern NSString * const CASAPIUserKey;
+extern NSString * const CASAPIUserIdKey;
+extern NSString * const CASAPIEmailKey;
+extern NSString * const CASAPINameKey;
+extern NSString * const CASAPIPasswordKey;
 
-NSString * const CASAPITokenKey = @"token";
-NSString * const CASAPIExpiresInKey = @"expires_in";
+extern NSString * const CASAPITokenKey;
+extern NSString * const CASAPIExpiresInKey;
 
-NSString * const CASAPISubletIdKey = @"sublet_id";
+extern NSString * const CASAPISubletIdKey;
 
 @class CASToken;
 
