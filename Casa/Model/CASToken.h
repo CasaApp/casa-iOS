@@ -11,7 +11,7 @@
 
 @interface CASToken : NSObject <CASObjectState>
 
-@property (nonatomic, strong) NSString *token;
+@property (nonatomic, copy) NSString *token;
 @property (nonatomic, strong) NSDate *expiryDate;
 
 @end

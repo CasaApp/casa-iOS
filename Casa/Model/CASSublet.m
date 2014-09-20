@@ -10,4 +10,17 @@
 
 @implementation CASSublet
 
+- (id)copy
+{
+    CASSublet *sublet = [[CASSublet alloc] init];
+    sublet.subletId = self.subletId;
+    sublet.price = self.price;
+    sublet.address = self.address;
+    sublet.startDate = self.startDate;
+    sublet.endDate = self.endDate;
+    sublet.description = self.description;
+    sublet.tags = self.tags;
+    return sublet;
+}
+
 @end

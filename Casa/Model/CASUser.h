@@ -12,7 +12,7 @@
 @interface CASUser : NSObject <CASObjectState>
 
 @property (nonatomic, strong) NSNumber *userId;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *email;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *email;
 
 @end

@@ -4,6 +4,7 @@
 target "Casa" do
 pod "Bolts", "~> 1.1.2"
 pod "AFNetworking", "~> 2.0"
+pod "Underscore.m", "~> 0.2.1"
 end
 
 target "CasaTests" do
