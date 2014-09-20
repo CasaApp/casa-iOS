@@ -23,6 +23,7 @@
 		7091A5DD19CD5CFC00ED80A0 /* CASSublet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A5DC19CD5CFC00ED80A0 /* CASSublet.m */; };
 		7091A5E019CD5D1200ED80A0 /* CASToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A5DF19CD5D1200ED80A0 /* CASToken.m */; };
 		7091A5E619CD5D2900ED80A0 /* CASUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A5E519CD5D2900ED80A0 /* CASUser.m */; };
+		7091A5EC19CD672B00ED80A0 /* CASHTTPAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A5EB19CD672B00ED80A0 /* CASHTTPAPIClient.m */; };
 		74C2252FF319477FAA5DCE2F /* libPods-Casa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C43D1C98C554012B275A41E /* libPods-Casa.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,8 @@
 		7091A5DF19CD5D1200ED80A0 /* CASToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASToken.m; path = Model/CASToken.m; sourceTree = "<group>"; };
 		7091A5E419CD5D2900ED80A0 /* CASUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASUser.h; path = Model/CASUser.h; sourceTree = "<group>"; };
 		7091A5E519CD5D2900ED80A0 /* CASUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASUser.m; path = Model/CASUser.m; sourceTree = "<group>"; };
+		7091A5EA19CD672B00ED80A0 /* CASHTTPAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASHTTPAPIClient.h; path = Network/CASHTTPAPIClient.h; sourceTree = "<group>"; };
+		7091A5EB19CD672B00ED80A0 /* CASHTTPAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASHTTPAPIClient.m; path = Network/CASHTTPAPIClient.m; sourceTree = "<group>"; };
 		CCF9D5936FB2421EAFB4B595 /* Pods-Casa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Casa.xcconfig"; path = "Pods/Pods-Casa.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,6 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				7091A5D619CD42B700ED80A0 /* CASAPIClient.h */,
+				7091A5EA19CD672B00ED80A0 /* CASHTTPAPIClient.h */,
+				7091A5EB19CD672B00ED80A0 /* CASHTTPAPIClient.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 				7091A5DD19CD5CFC00ED80A0 /* CASSublet.m in Sources */,
 				7091A5DA19CD475900ED80A0 /* CASGeoPoint.m in Sources */,
 				7091A5E019CD5D1200ED80A0 /* CASToken.m in Sources */,
+				7091A5EC19CD672B00ED80A0 /* CASHTTPAPIClient.m in Sources */,
 				7091A5D419CD420900ED80A0 /* CASAppDelegate.m in Sources */,
 				7091A5AF19CD3F8800ED80A0 /* main.m in Sources */,
 			);

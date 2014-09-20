@@ -8,24 +8,30 @@
 
 #import <Foundation/Foundation.h>
 
-NSString * const CASAPILimitKey = @"CASAPILimitKey";
-NSString * const CASAPIOffsetKey = @"CASAPIOffsetKey";
+NSString * const CASAPILimitKey = @"limit";
+NSString * const CASAPIOffsetKey = @"offset";
 
-NSString * const CASAPILatitudeKey = @"CASAPILatitudeKey";
-NSString * const CASAPILongitudeKey = @"CASAPILongitudeKey";
-NSString * const CASAPIRadiusKey = @"CASAPIRadiusKey";
-NSString * const CASAPIMinPriceKey = @"CASAPIMinPriceKey";
-NSString * const CASAPIMaxPriceKey = @"CASAPIMaxPriceKey";
-NSString * const CASAPITagsKey = @"CASAPITagsKey";
-NSString * const CASAPIAddressKey = @"CASAPIAddressKey";
+NSString * const CASAPILatitudeKey = @"latitude";
+NSString * const CASAPILongitudeKey = @"longitude";
+NSString * const CASAPIRadiusKey = @"radius";
+NSString * const CASAPIMinPriceKey = @"minimum_price";
+NSString * const CASAPIMaxPriceKey = @"maximum_price";
+NSString * const CASAPITagsKey = @"tags";
+NSString * const CASAPIAddressKey = @"address";
 
-NSString * const CASAPIEmailKey = @"CASAPIEmailKey";
-NSString * const CASAPIPasswordKey = @"CASAPIPasswordKey";
+NSString * const CASAPIEmailKey = @"email";
+NSString * const CASAPIPasswordKey = @"password";
 
-NSString * const CASAPITokenKey = @"CASAPITokenKey";
-NSString * const CASAPIExpiresInKey = @"CASAPIExpiresInKey";
+NSString * const CASAPITokenKey = @"token";
+NSString * const CASAPIExpiresInKey = @"expires_in";
+
+NSString * const CASAPISubletIdKey = @"sublet_id";
+
+@class CASToken;
 
 @protocol CASAPIClient <NSObject>
+
+@property (nonatomic, strong, readonly) CASToken *token;
 
 /**
  * Sublets
@@ -40,7 +46,7 @@ NSString * const CASAPIExpiresInKey = @"CASAPIExpiresInKey";
  * Authentication
  */
 - (BFTask *)loginWithParams:(NSDictionary *)params;
-- (BFTask *)logoutWithParams:(NSDictionary *)params;
+- (BFTask *)logout;
 
 /**
  * User
@@ -52,9 +58,8 @@ NSString * const CASAPIExpiresInKey = @"CASAPIExpiresInKey";
 /**
  * Bookmarks
  */
-- (BFTask *)getBookmarksWithParams:(NSDictionary *)params;
-- (BFTask *)createBookmarkWithParams:(NSDictionary *)params;
-- (BFTask *)getBookmarkWithId:(NSNumber *)bookmarkId;
-- (BFTask *)deleteBookmarkWithId:(NSNumber *)bookmarkId;
+- (BFTask *)getBookmarksForUserWithId:(NSNumber *)userId params:(NSDictionary *)params;
+- (BFTask *)createBookmarkForUserWithId:(NSNumber *)userId subletId:(NSNumber *)subletId;
+- (BFTask *)deleteBookmarkForUserWithId:(NSNumber *)userId subletId:(NSNumber *)subletId;
 
 @end
