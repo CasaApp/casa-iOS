@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSNumber *totalRooms;
 @property (nonatomic, strong) NSNumber *minimumPrice;
 @property (nonatomic, strong) NSNumber *maximumPrice;
+@property (nonatomic, strong) NSDate *startDate;
+@property (nonatomic, strong) NSDate *endDate;
 @property (nonatomic, copy) NSArray *tags;
 
 @end

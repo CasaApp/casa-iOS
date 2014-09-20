@@ -10,6 +10,7 @@
 #import "CASListingTableViewCell.h"
 #import "CASServiceLocator.h"
 #import "CASSubletService.h"
+#import "CASSubletQuery.h"
 
 @interface CASListingsViewController ()
 
@@ -42,8 +43,14 @@
                                                                                            target:self
                                                                                            action:@selector(createButtonTapped:)];
     
-    [[[CASServiceLocator sharedInstance].subletService getSubletWithId:@5629499534213120] continueWithBlock:^id(BFTask *task) {
-        self.tableData = @[ task.result, task.result, task.result, task.result ];
+    CASSubletQuery *query = [[CASSubletQuery alloc] init];
+    query.latitude = @50;
+    query.longitude = @50;
+    query.radius = @500;
+    query.startDate = [NSDate date];
+    query.endDate = [NSDate date];
+    [[[CASServiceLocator sharedInstance].subletService getSubletsWithQuery:query] continueWithBlock:^id(BFTask *task) {
+        self.tableData = task.result;
         [self.tableView reloadData];
         
         return nil;
@@ -85,7 +92,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    
 }
 
 #pragma mark - Actions

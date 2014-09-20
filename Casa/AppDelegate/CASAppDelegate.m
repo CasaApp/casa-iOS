@@ -47,7 +47,9 @@
     navigationController.navigationBar.barTintColor = red;
     navigationController.navigationBar.tintColor = [UIColor whiteColor];
     navigationController.navigationBar.translucent = NO;
-    navigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Listings" image:nil tag:0];
+    navigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Listings" image:[UIImage imageNamed:@"home-hollow"] tag:0];
+    
+    [[UITabBar appearance] setTintColor:[UIColor redColor]];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = @[ navigationController ];

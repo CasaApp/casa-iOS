@@ -36,6 +36,8 @@
 		7091A61A19CDCCF500ED80A0 /* star-hollow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7091A61819CDCCF500ED80A0 /* star-hollow.png */; };
 		7091A61D19CDCE5400ED80A0 /* star-filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7091A61B19CDCE5400ED80A0 /* star-filled@2x.png */; };
 		7091A61E19CDCE5400ED80A0 /* star-hollow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7091A61C19CDCE5400ED80A0 /* star-hollow@2x.png */; };
+		7091A62119CDD87500ED80A0 /* home-filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7091A61F19CDD87500ED80A0 /* home-filled@2x.png */; };
+		7091A62219CDD87500ED80A0 /* home-hollow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7091A62019CDD87500ED80A0 /* home-hollow@2x.png */; };
 		74C2252FF319477FAA5DCE2F /* libPods-Casa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C43D1C98C554012B275A41E /* libPods-Casa.a */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +99,8 @@
 		7091A61819CDCCF500ED80A0 /* star-hollow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-hollow.png"; path = "Resources/star-hollow.png"; sourceTree = "<group>"; };
 		7091A61B19CDCE5400ED80A0 /* star-filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-filled@2x.png"; path = "Resources/star-filled@2x.png"; sourceTree = "<group>"; };
 		7091A61C19CDCE5400ED80A0 /* star-hollow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-hollow@2x.png"; path = "Resources/star-hollow@2x.png"; sourceTree = "<group>"; };
+		7091A61F19CDD87500ED80A0 /* home-filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home-filled@2x.png"; path = "Resources/home-filled@2x.png"; sourceTree = "<group>"; };
+		7091A62019CDD87500ED80A0 /* home-hollow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home-hollow@2x.png"; path = "Resources/home-hollow@2x.png"; sourceTree = "<group>"; };
 		CCF9D5936FB2421EAFB4B595 /* Pods-Casa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Casa.xcconfig"; path = "Pods/Pods-Casa.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -269,6 +273,8 @@
 				7091A61819CDCCF500ED80A0 /* star-hollow.png */,
 				7091A61B19CDCE5400ED80A0 /* star-filled@2x.png */,
 				7091A61C19CDCE5400ED80A0 /* star-hollow@2x.png */,
+				7091A61F19CDD87500ED80A0 /* home-filled@2x.png */,
+				7091A62019CDD87500ED80A0 /* home-hollow@2x.png */,
 				7091A61119CDA40F00ED80A0 /* Logo - Clear@2x.png */,
 			);
 			name = Resources;
@@ -361,11 +367,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7091A62219CDD87500ED80A0 /* home-hollow@2x.png in Resources */,
 				7091A61219CDA40F00ED80A0 /* Logo - Clear@2x.png in Resources */,
 				7091A61919CDCCF500ED80A0 /* star-filled.png in Resources */,
 				7091A61D19CDCE5400ED80A0 /* star-filled@2x.png in Resources */,
 				7091A61E19CDCE5400ED80A0 /* star-hollow@2x.png in Resources */,
 				7091A61A19CDCCF500ED80A0 /* star-hollow.png in Resources */,
+				7091A62119CDD87500ED80A0 /* home-filled@2x.png in Resources */,
 				7091A5AD19CD3F8800ED80A0 /* InfoPlist.strings in Resources */,
 				7091A5B519CD3F8800ED80A0 /* Images.xcassets in Resources */,
 			);

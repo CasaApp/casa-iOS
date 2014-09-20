@@ -63,18 +63,38 @@
 
 - (BFTask *)getSubletsWithQuery:(CASSubletQuery *)query
 {
-    NSDictionary *params = @{ CASAPIOffsetKey: query.offset,
-                              CASAPILimitKey: query.limit,
-                              CASAPILatitudeKey: query.latitude,
-                              CASAPILongitudeKey: query.longitude,
-                              CASAPIRoomsAvailableKey: query.roomsAvailable,
-                              CASAPITotalRoomsKey: query.totalRooms,
-                              CASAPIMinPriceKey: query.minimumPrice,
-                              CASAPIMaxPriceKey: query.maximumPrice,
-                              CASAPITagsKey: query.tags };
+    NSDictionary *dict = @{ CASAPILatitudeKey: query.latitude,
+                            CASAPILongitudeKey: query.longitude,
+                            CASAPIStartDateKey: [self.dateFormatter stringFromDate:query.startDate],
+                            CASAPIEndDateKey: [self.dateFormatter stringFromDate:query.endDate],
+                            CASAPIRadiusKey: query.radius };
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:dict];
+    
+    if (query.offset) {
+        params[CASAPIOffsetKey] = query.offset;
+    }
+    if (query.limit) {
+        params[CASAPILimitKey] = query.limit;
+    }
+    if (query.roomsAvailable) {
+        params[CASAPIRoomsAvailableKey] = query.roomsAvailable;
+    }
+    if (query.totalRooms) {
+        params[CASAPITotalRoomsKey] = query.totalRooms;
+    }
+    if (query.minimumPrice) {
+        params[CASAPIMinPriceKey] = query.minimumPrice;
+    }
+    if (query.maximumPrice) {
+        params[CASAPIMaxPriceKey] = query.maximumPrice;
+    }
+    if (query.tags) {
+        params[CASAPITagsKey] = query.tags;
+    }
     
     return [[self.apiClient getSubletsWithParams:params] continueWithSuccessBlock:^id(BFTask *task) {
-        return _.array(task.result)
+        return _.array(task.result[@"sublets"])
           .map(^CASSublet *(NSDictionary *subletJson) {
               return [self subletWithJson:subletJson];
           })
