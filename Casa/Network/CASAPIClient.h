@@ -24,6 +24,7 @@ extern NSString * const CASAPIUserIdKey;
 extern NSString * const CASAPIEmailKey;
 extern NSString * const CASAPINameKey;
 extern NSString * const CASAPIPasswordKey;
+extern NSString * const CASAPICurrentPasswordKey;
 
 extern NSString * const CASAPITokenKey;
 extern NSString * const CASAPIExpiresInKey;

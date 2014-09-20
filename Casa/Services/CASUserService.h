@@ -20,4 +20,9 @@
 - (BFTask *)loginWithEmail:(NSString *)email password:(NSString *)password;
 - (BFTask *)logout;
 
+- (BFTask *)signupWithName:(NSString *)name email:(NSString *)email password:(NSString *)password;
+- (BFTask *)getUserWithId:(NSNumber *)userId;
+- (BFTask *)updateUserWithName:(NSString *)name currentPassword:(NSString *)currentPassword;
+- (BFTask *)updateUserWithPassword:(NSString *)password currentPassword:(NSString *)currentPassword;
+
 @end

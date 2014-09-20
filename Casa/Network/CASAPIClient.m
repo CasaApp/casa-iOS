@@ -14,6 +14,7 @@ NSString * const CASAPIUserIdKey = @"user_id";
 NSString * const CASAPIEmailKey = @"email";
 NSString * const CASAPINameKey = @"name";
 NSString * const CASAPIPasswordKey = @"password";
+NSString * const CASAPICurrentPasswordKey = @"current_password";
 
 NSString * const CASAPITokenKey = @"token";
 NSString * const CASAPIExpiresInKey = @"expires_in";

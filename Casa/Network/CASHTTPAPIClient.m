@@ -82,6 +82,17 @@ static NSString * const CASExpiryDateKey = @"CASExpiryDateKey";
     return task.task;
 }
 
+- (void)handleTokenJson:(NSDictionary *)tokenJson
+{
+    NSTimeInterval secondsUntilExpiry = [tokenJson[CASAPIExpiresInKey] doubleValue];
+    
+    CASToken *token = [[CASToken alloc] init];
+    token.token = tokenJson[CASAPITokenKey];
+    token.expiryDate = [[NSDate date] dateByAddingTimeInterval:secondsUntilExpiry];
+    self.token = token;
+    [token saveState];
+}
+
 #pragma mark - Sublets
 
 - (BFTask *)getSubletsWithParams:(NSDictionary *)params
@@ -123,14 +134,7 @@ static NSString * const CASExpiryDateKey = @"CASExpiryDateKey";
         
         return task;
     }] continueWithSuccessBlock:^id(BFTask *task) {
-        NSDictionary *responseJson = task.result;
-        NSTimeInterval secondsUntilExpiry = [responseJson[CASAPIExpiresInKey] doubleValue];
-        
-        CASToken *token = [[CASToken alloc] init];
-        token.token = responseJson[CASAPITokenKey];
-        token.expiryDate = [[NSDate date] dateByAddingTimeInterval:secondsUntilExpiry];
-        self.token = token;
-        [token saveState];
+        [self handleTokenJson:task.result[CASAPITokenKey]];
         
         return task;
     }];
@@ -150,7 +154,11 @@ static NSString * const CASExpiryDateKey = @"CASExpiryDateKey";
 
 - (BFTask *)signupUserWithParams:(NSDictionary *)params
 {
-    return [self taskWithMethod:HTTPRequestMethodPost path:API_USERS params:params];
+    return [[self taskWithMethod:HTTPRequestMethodPost path:API_USERS params:params] continueWithSuccessBlock:^id(BFTask *task) {
+        [self handleTokenJson:task.result[CASAPITokenKey]];
+        
+        return task;
+    }];
 }
 
 - (BFTask *)getUserWithId:(NSNumber *)userId
