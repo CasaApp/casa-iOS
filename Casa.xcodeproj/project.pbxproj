@@ -19,6 +19,7 @@
 		7091A5C619CD3F8800ED80A0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7091A5C419CD3F8800ED80A0 /* InfoPlist.strings */; };
 		7091A5C819CD3F8800ED80A0 /* CasaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A5C719CD3F8800ED80A0 /* CasaTests.m */; };
 		7091A5D419CD420900ED80A0 /* CASAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A5D319CD420900ED80A0 /* CASAppDelegate.m */; };
+		7091A5DA19CD475900ED80A0 /* CASGeoPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A5D919CD475900ED80A0 /* CASGeoPoint.m */; };
 		74C2252FF319477FAA5DCE2F /* libPods-Casa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C43D1C98C554012B275A41E /* libPods-Casa.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,9 @@
 		7091A5C719CD3F8800ED80A0 /* CasaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CasaTests.m; sourceTree = "<group>"; };
 		7091A5D219CD420900ED80A0 /* CASAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASAppDelegate.h; path = AppDelegate/CASAppDelegate.h; sourceTree = "<group>"; };
 		7091A5D319CD420900ED80A0 /* CASAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASAppDelegate.m; path = AppDelegate/CASAppDelegate.m; sourceTree = "<group>"; };
+		7091A5D619CD42B700ED80A0 /* CASAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CASAPIClient.h; path = Network/CASAPIClient.h; sourceTree = "<group>"; };
+		7091A5D819CD475900ED80A0 /* CASGeoPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASGeoPoint.h; path = Model/CASGeoPoint.h; sourceTree = "<group>"; };
+		7091A5D919CD475900ED80A0 /* CASGeoPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASGeoPoint.m; path = Model/CASGeoPoint.m; sourceTree = "<group>"; };
 		CCF9D5936FB2421EAFB4B595 /* Pods-Casa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Casa.xcconfig"; path = "Pods/Pods-Casa.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				7091A5D119CD41EB00ED80A0 /* AppDelegate */,
+				7091A5D719CD46FA00ED80A0 /* Model */,
 				7091A5D519CD421F00ED80A0 /* Network */,
 				7091A5B419CD3F8800ED80A0 /* Images.xcassets */,
 				7091A5A919CD3F8800ED80A0 /* Supporting Files */,
@@ -162,8 +167,18 @@
 		7091A5D519CD421F00ED80A0 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				7091A5D619CD42B700ED80A0 /* CASAPIClient.h */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		7091A5D719CD46FA00ED80A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7091A5D819CD475900ED80A0 /* CASGeoPoint.h */,
+				7091A5D919CD475900ED80A0 /* CASGeoPoint.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7091A5DA19CD475900ED80A0 /* CASGeoPoint.m in Sources */,
 				7091A5D419CD420900ED80A0 /* CASAppDelegate.m in Sources */,
 				7091A5AF19CD3F8800ED80A0 /* main.m in Sources */,
 			);
