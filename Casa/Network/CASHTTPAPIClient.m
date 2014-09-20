@@ -42,6 +42,7 @@ static NSString * const CASExpiryDateKey = @"CASExpiryDateKey";
     if (self = [super init]) {
         NSURL *baseUrl = [NSURL URLWithString:@"http://casa.tpcstld.me"];
         _httpRequestOperationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseUrl];
+        _httpRequestOperationManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
         
         self.token = [CASToken loadState];
     }

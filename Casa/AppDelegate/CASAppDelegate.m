@@ -7,16 +7,37 @@
 //
 
 #import "CASAppDelegate.h"
+#import "CASHTTPAPIClient.h"
+#import "CASServiceLocator.h"
+#import "CASSubletService.h"
+#import "CASUserService.h"
 
 @implementation CASAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self setupServices];
+    [self setupWindow];
+    
+    return YES;
+}
+
+- (void)setupServices
+{
+    id<CASAPIClient> apiClient = [[CASHTTPAPIClient alloc] init];
+    
+    CASUserService *userService = [[CASUserService alloc] initWithApiClient:apiClient];
+    CASSubletService *subletService = [[CASSubletService alloc] initWithApiClient:apiClient userService:userService];
+    
+    [CASServiceLocator sharedInstance].userService = userService;
+    [CASServiceLocator sharedInstance].subletService = subletService;
+}
+
+- (void)setupWindow
+{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
