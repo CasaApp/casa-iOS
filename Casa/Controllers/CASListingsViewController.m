@@ -10,10 +10,15 @@
 #import "CASListingTableViewCell.h"
 #import "CASServiceLocator.h"
 #import "CASSubletService.h"
+#import "CASUserService.h"
 #import "CASSubletQuery.h"
+#import "CASSublet.h"
+#import "CASCreateListingViewController.h"
+#import "CASLoginSignupViewController.h"
 
-@interface CASListingsViewController ()
+@interface CASListingsViewController () <CASListingTableViewCellDelegate>
 
+@property (nonatomic, strong) CASSubletQuery *currentQuery;
 @property (nonatomic, strong) NSMutableArray *tableData;
 
 @end
@@ -43,13 +48,13 @@
                                                                                            target:self
                                                                                            action:@selector(createButtonTapped:)];
     
-    CASSubletQuery *query = [[CASSubletQuery alloc] init];
-    query.latitude = @50;
-    query.longitude = @50;
-    query.radius = @500;
-    query.startDate = [NSDate date];
-    query.endDate = [NSDate date];
-    [[[CASServiceLocator sharedInstance].subletService getSubletsWithQuery:query] continueWithBlock:^id(BFTask *task) {
+    self.currentQuery = [[CASSubletQuery alloc] init];
+    self.currentQuery.latitude = @50;
+    self.currentQuery.longitude = @50;
+    self.currentQuery.radius = @500;
+    self.currentQuery.startDate = [NSDate date];
+    self.currentQuery.endDate = [NSDate date];
+    [[[CASServiceLocator sharedInstance].subletService getSubletsWithQuery:self.currentQuery] continueWithBlock:^id(BFTask *task) {
         self.tableData = task.result;
         [self.tableView reloadData];
         
@@ -78,6 +83,7 @@
         cell = [[CASListingTableViewCell alloc] init];
     }
     
+    cell.delegate = self;
     cell.sublet = self.tableData[indexPath.row];
     
     return cell;
@@ -94,19 +100,72 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
+    if (![CASServiceLocator sharedInstance].userService.loggedInUser) {
+        [self requestLogin];
+        return;
+    }
     
+    
+}
+
+- (void)listingTableViewCell:(CASListingTableViewCell *)listingTableViewCell didTapScrollView:(UIScrollView *)scrollView
+{
+    [self tableView:self.tableView didSelectRowAtIndexPath:[self.tableView indexPathForCell:listingTableViewCell]];
+}
+
+- (BOOL)listingTableViewCell:(CASListingTableViewCell *)listingTableViewCell shouldToggleStarForSublet:(CASSublet *)sublet
+{
+    if (![CASServiceLocator sharedInstance].userService.loggedInUser) {
+        [self requestLogin];
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)listingTableViewCell:(CASListingTableViewCell *)listingTableViewCell didTapStarForSublet:(CASSublet *)sublet
+{
+    [[[CASServiceLocator sharedInstance].subletService createBookmarkForSubletId:sublet.subletId] continueWithBlock:^id(BFTask *task) {
+        
+        
+        return nil;
+    }];
+}
+
+- (void)requestLogin
+{
+    CASLoginSignupViewController *loginvc = [[CASLoginSignupViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginvc];
+    nav.navigationBar.barTintColor = self.navigationController.navigationBar.barTintColor;
+    nav.navigationBar.tintColor = [UIColor whiteColor];
+    [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    nav.navigationBar.translucent = NO;
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 #pragma mark - Actions
 
 - (void)createButtonTapped:(UIBarButtonItem *)sender
 {
+    if (![CASServiceLocator sharedInstance].userService.loggedInUser) {
+        [self requestLogin];
+        return;
+    }
     
+    CASCreateListingViewController *createListingViewController = [[CASCreateListingViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:createListingViewController];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)refreshControlTriggered:(UIRefreshControl *)sender
 {
-    [sender endRefreshing];
+    [[[CASServiceLocator sharedInstance].subletService getSubletsWithQuery:self.currentQuery] continueWithBlock:^id(BFTask *task) {
+        self.tableData = task.result;
+        [self.tableView reloadData];
+        [sender endRefreshing];
+        
+        return nil;
+    }];
 }
 
 @end

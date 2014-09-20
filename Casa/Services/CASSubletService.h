@@ -42,4 +42,8 @@
                     tags:(NSArray *)tags;
 - (BFTask *)deleteSubletWithId:(NSNumber *)subletId;
 
+- (BFTask *)getBookmarksWithOffset:(NSNumber *)offset limit:(NSNumber *)limit;
+- (BFTask *)createBookmarkForSubletId:(NSNumber *)subletId;
+- (BFTask *)deleteBookmarkForSubletId:(NSNumber *)subletId;
+
 @end

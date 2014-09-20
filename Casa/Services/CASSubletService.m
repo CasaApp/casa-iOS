@@ -11,6 +11,7 @@
 #import "CASSubletQuery.h"
 #import "CASUserService.h"
 #import "CASSublet.h"
+#import "CASUser.h"
 
 @interface CASSubletService ()
 
@@ -161,6 +162,29 @@
 - (BFTask *)deleteSubletWithId:(NSNumber *)subletId
 {
     return [self.apiClient deleteSubletWithId:subletId];
+}
+
+- (BFTask *)getBookmarksWithOffset:(NSNumber *)offset limit:(NSNumber *)limit
+{
+    NSDictionary *params = @{ CASAPIOffsetKey: offset,
+                              CASAPILimitKey: limit };
+    return [[self.apiClient getBookmarksForUserWithId:self.userService.loggedInUser.userId params:params] continueWithSuccessBlock:^id(BFTask *task) {
+        return _.array(task.result[@"sublets"])
+        .map(^CASSublet *(NSDictionary *subletJson) {
+            return [self subletWithJson:subletJson];
+        })
+        .unwrap;
+    }];
+}
+
+- (BFTask *)createBookmarkForSubletId:(NSNumber *)subletId
+{
+    return [self.apiClient createBookmarkForUserWithId:self.userService.loggedInUser.userId subletId:subletId];
+}
+
+- (BFTask *)deleteBookmarkForSubletId:(NSNumber *)subletId
+{
+    return [self.apiClient deleteBookmarkForUserWithId:self.userService.loggedInUser.userId subletId:subletId];
 }
 
 @end

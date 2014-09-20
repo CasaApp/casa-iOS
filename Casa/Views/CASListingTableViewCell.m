@@ -25,6 +25,7 @@ static const CGFloat kPriceBackgroundViewHeight = 30.0f;
 @property (nonatomic, strong) UILabel *cityLabel;
 @property (nonatomic, strong) UILabel *numRoomsAvailableLabel;
 @property (nonatomic, strong) UILabel *roomsAvailableLabel;
+@property (nonatomic, strong) UIView *bottomSeparatorView;
 
 @end
 
@@ -42,6 +43,9 @@ static const CGFloat kPriceBackgroundViewHeight = 30.0f;
         _imagesScrollView.bounces = NO;
         _imagesScrollView.delegate = self;
         [self addSubview:_imagesScrollView];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+        [_imagesScrollView addGestureRecognizer:tap];
         
         UIImageView *subletImageView = [[UIImageView alloc] init];
         subletImageView.backgroundColor = [UIColor blueColor];
@@ -107,6 +111,10 @@ static const CGFloat kPriceBackgroundViewHeight = 30.0f;
         [self addSubview:_roomsAvailableLabel];
         
         [self addSubview:_pageControl];
+        
+        _bottomSeparatorView = [[UIView alloc] init];
+        _bottomSeparatorView.backgroundColor = [UIColor lightGrayColor];
+        [self addSubview:_bottomSeparatorView];
     }
     return self;
 }
@@ -226,6 +234,14 @@ static const CGFloat kPriceBackgroundViewHeight = 30.0f;
     frame.origin.x = CGRectGetWidth(self.bounds) - horizontalPadding - CGRectGetWidth(self.roomsAvailableLabel.bounds);
     frame.origin.y = CGRectGetMinY(self.cityLabel.frame);
     self.roomsAvailableLabel.frame = frame;
+    
+    const CGFloat separatorHeight = 0.2505f;
+    
+    frame.origin.x = 0.0f;
+    frame.origin.y = CGRectGetHeight(self.bounds) - separatorHeight;
+    frame.size.width = CGRectGetWidth(self.bounds);
+    frame.size.height = separatorHeight;
+    self.bottomSeparatorView.frame = frame;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -236,7 +252,17 @@ static const CGFloat kPriceBackgroundViewHeight = 30.0f;
 
 - (void)starButtonTapped:(UIButton *)sender
 {
+    if (![self.delegate listingTableViewCell:self shouldToggleStarForSublet:self.sublet]) {
+        return;
+    }
+    
     sender.selected = !sender.selected;
+    [self.delegate listingTableViewCell:self didTapStarForSublet:self.sublet];
+}
+
+- (void)tapped:(id)sender
+{
+    [self.delegate listingTableViewCell:self didTapScrollView:self.imagesScrollView];
 }
 
 @end
