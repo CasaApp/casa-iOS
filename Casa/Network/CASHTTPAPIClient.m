@@ -109,7 +109,16 @@ typedef enum : NSUInteger {
 
 - (BFTask *)loginWithParams:(NSDictionary *)params
 {
-    return [[self taskWithMethod:HTTPRequestMethodPost path:API_AUTHENTICATE params:params] continueWithSuccessBlock:^id(BFTask *task) {
+    NSString *email = params[CASAPIEmailKey];
+    NSString *password = params[CASAPIPasswordKey];
+    
+    [self.httpRequestOperationManager.requestSerializer setAuthorizationHeaderFieldWithUsername:email password:password];
+    
+    return [[[self taskWithMethod:HTTPRequestMethodPost path:API_AUTHENTICATE params:params] continueWithBlock:^id(BFTask *task) {
+        [self.httpRequestOperationManager.requestSerializer clearAuthorizationHeader];
+        
+        return task;
+    }] continueWithSuccessBlock:^id(BFTask *task) {
         NSDictionary *responseJson = task.result;
         NSTimeInterval secondsUntilExpiry = [responseJson[CASAPIExpiresInKey] doubleValue];
         
