@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSNumber *longitude;
 @property (nonatomic, strong) NSNumber *radius;
+@property (nonatomic, strong) NSNumber *roomsAvailable;
+@property (nonatomic, strong) NSNumber *totalRooms;
 @property (nonatomic, strong) NSNumber *minimumPrice;
 @property (nonatomic, strong) NSNumber *maximumPrice;
 @property (nonatomic, copy) NSArray *tags;

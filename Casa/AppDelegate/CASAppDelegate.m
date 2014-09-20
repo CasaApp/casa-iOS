@@ -11,6 +11,7 @@
 #import "CASServiceLocator.h"
 #import "CASSubletService.h"
 #import "CASUserService.h"
+#import "CASListingsViewController.h"
 
 @implementation CASAppDelegate
 
@@ -18,6 +19,8 @@
 {
     [self setupServices];
     [self setupWindow];
+    
+    application.statusBarStyle = UIStatusBarStyleLightContent;
     
     return YES;
 }
@@ -36,6 +39,20 @@
 - (void)setupWindow
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    UIColor *red = UIColorFromRGB(0xEA4831);
+    
+    CASListingsViewController *listingsViewController = [[CASListingsViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:listingsViewController];
+    navigationController.navigationBar.barTintColor = red;
+    navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    navigationController.navigationBar.translucent = NO;
+    navigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Listings" image:nil tag:0];
+    
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[ navigationController ];
+    
+    self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 }

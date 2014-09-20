@@ -1,13 +1,13 @@
 //
-//  CASSublet.m
+//  CASListingsViewController.h
 //  Casa
 //
 //  Created by Justin Sacbibit on 2014-09-20.
 //  Copyright (c) 2014 Justin Sacbibit. All rights reserved.
 //
 
-#import "CASSublet.h"
+#import <UIKit/UIKit.h>
 
-@implementation CASSublet
+@interface CASListingsViewController : UITableViewController
 
 @end

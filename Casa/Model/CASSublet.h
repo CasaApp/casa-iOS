@@ -17,6 +17,9 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSNumber *subletId;
 @property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, copy) NSString *address;
+@property (nonatomic, copy) NSString *city;
+@property (nonatomic, strong) NSNumber *roomsAvailable;
+@property (nonatomic, strong) NSNumber *totalRooms;
 @property (nonatomic, strong) NSDate *startDate;
 @property (nonatomic, strong) NSDate *endDate;
 @property (nonatomic, copy) NSString *description;

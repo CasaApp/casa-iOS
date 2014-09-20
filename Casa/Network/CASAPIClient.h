@@ -19,9 +19,12 @@ extern NSString * const CASAPIMinPriceKey;
 extern NSString * const CASAPIMaxPriceKey;
 extern NSString * const CASAPITagsKey;
 extern NSString * const CASAPIAddressKey;
+extern NSString * const CASAPICityKey;
 extern NSString * const CASAPIStartDateKey;
 extern NSString * const CASAPIEndDateKey;
 extern NSString * const CASAPIDescriptionKey;
+extern NSString * const CASAPIRoomsAvailableKey;
+extern NSString * const CASAPITotalRoomsKey;
 
 extern NSString * const CASAPIUserKey;
 extern NSString * const CASAPIUserIdKey;

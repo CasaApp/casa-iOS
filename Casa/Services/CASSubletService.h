@@ -21,7 +21,10 @@
 - (BFTask *)createSubletWithLatitude:(NSNumber *)latitude
                            longitude:(NSNumber *)longitude
                              address:(NSString *)address
+                                city:(NSString *)city
                                price:(NSNumber *)price
+                      roomsAvailable:(NSNumber *)roomsAvailable
+                          totalRooms:(NSNumber *)totalRooms
                            startDate:(NSDate *)startDate
                              endDate:(NSDate *)endDate
                                 tags:(NSArray *)tags;
@@ -30,7 +33,10 @@
             withLatitude:(NSNumber *)latitude
                longitude:(NSNumber *)longitude
                  address:(NSString *)address
+                    city:(NSString *)city
                    price:(NSNumber *)price
+          roomsAvailable:(NSNumber *)roomsAvailable
+              totalRooms:(NSNumber *)totalRooms
                startDate:(NSDate *)startDate
                  endDate:(NSDate *)endDate
                     tags:(NSArray *)tags;

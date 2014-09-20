@@ -29,6 +29,13 @@
 		7091A5FF19CD8DA500ED80A0 /* CASSubletService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A5FE19CD8DA500ED80A0 /* CASSubletService.m */; };
 		7091A60219CD904700ED80A0 /* CASSubletQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A60119CD904700ED80A0 /* CASSubletQuery.m */; };
 		7091A60B19CD9C0300ED80A0 /* CASServiceLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A60A19CD9C0300ED80A0 /* CASServiceLocator.m */; };
+		7091A60F19CD9FD100ED80A0 /* CASListingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A60E19CD9FD100ED80A0 /* CASListingsViewController.m */; };
+		7091A61219CDA40F00ED80A0 /* Logo - Clear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7091A61119CDA40F00ED80A0 /* Logo - Clear@2x.png */; };
+		7091A61619CDB6A900ED80A0 /* CASListingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A61519CDB6A900ED80A0 /* CASListingTableViewCell.m */; };
+		7091A61919CDCCF500ED80A0 /* star-filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 7091A61719CDCCF500ED80A0 /* star-filled.png */; };
+		7091A61A19CDCCF500ED80A0 /* star-hollow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7091A61819CDCCF500ED80A0 /* star-hollow.png */; };
+		7091A61D19CDCE5400ED80A0 /* star-filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7091A61B19CDCE5400ED80A0 /* star-filled@2x.png */; };
+		7091A61E19CDCE5400ED80A0 /* star-hollow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7091A61C19CDCE5400ED80A0 /* star-hollow@2x.png */; };
 		74C2252FF319477FAA5DCE2F /* libPods-Casa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C43D1C98C554012B275A41E /* libPods-Casa.a */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +88,15 @@
 		7091A60119CD904700ED80A0 /* CASSubletQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASSubletQuery.m; path = Model/CASSubletQuery.m; sourceTree = "<group>"; };
 		7091A60919CD9C0300ED80A0 /* CASServiceLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASServiceLocator.h; path = Services/CASServiceLocator.h; sourceTree = "<group>"; };
 		7091A60A19CD9C0300ED80A0 /* CASServiceLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASServiceLocator.m; path = Services/CASServiceLocator.m; sourceTree = "<group>"; };
+		7091A60D19CD9FD100ED80A0 /* CASListingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASListingsViewController.h; path = Controllers/CASListingsViewController.h; sourceTree = "<group>"; };
+		7091A60E19CD9FD100ED80A0 /* CASListingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASListingsViewController.m; path = Controllers/CASListingsViewController.m; sourceTree = "<group>"; };
+		7091A61119CDA40F00ED80A0 /* Logo - Clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Logo - Clear@2x.png"; path = "Resources/Logo - Clear@2x.png"; sourceTree = "<group>"; };
+		7091A61419CDB6A900ED80A0 /* CASListingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASListingTableViewCell.h; path = Views/CASListingTableViewCell.h; sourceTree = "<group>"; };
+		7091A61519CDB6A900ED80A0 /* CASListingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASListingTableViewCell.m; path = Views/CASListingTableViewCell.m; sourceTree = "<group>"; };
+		7091A61719CDCCF500ED80A0 /* star-filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-filled.png"; path = "Resources/star-filled.png"; sourceTree = "<group>"; };
+		7091A61819CDCCF500ED80A0 /* star-hollow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-hollow.png"; path = "Resources/star-hollow.png"; sourceTree = "<group>"; };
+		7091A61B19CDCE5400ED80A0 /* star-filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-filled@2x.png"; path = "Resources/star-filled@2x.png"; sourceTree = "<group>"; };
+		7091A61C19CDCE5400ED80A0 /* star-hollow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-hollow@2x.png"; path = "Resources/star-hollow@2x.png"; sourceTree = "<group>"; };
 		CCF9D5936FB2421EAFB4B595 /* Pods-Casa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Casa.xcconfig"; path = "Pods/Pods-Casa.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,10 +161,13 @@
 			isa = PBXGroup;
 			children = (
 				7091A5D119CD41EB00ED80A0 /* AppDelegate */,
+				7091A60C19CD9FB200ED80A0 /* Controllers */,
 				7091A5D719CD46FA00ED80A0 /* Model */,
 				7091A5D519CD421F00ED80A0 /* Network */,
 				7091A5ED19CD746900ED80A0 /* Services */,
+				7091A61319CDB69200ED80A0 /* Views */,
 				7091A5B419CD3F8800ED80A0 /* Images.xcassets */,
+				7091A61019CDA3D600ED80A0 /* Resources */,
 				7091A5A919CD3F8800ED80A0 /* Supporting Files */,
 			);
 			path = Casa;
@@ -234,6 +253,36 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
+		7091A60C19CD9FB200ED80A0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7091A60D19CD9FD100ED80A0 /* CASListingsViewController.h */,
+				7091A60E19CD9FD100ED80A0 /* CASListingsViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		7091A61019CDA3D600ED80A0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7091A61719CDCCF500ED80A0 /* star-filled.png */,
+				7091A61819CDCCF500ED80A0 /* star-hollow.png */,
+				7091A61B19CDCE5400ED80A0 /* star-filled@2x.png */,
+				7091A61C19CDCE5400ED80A0 /* star-hollow@2x.png */,
+				7091A61119CDA40F00ED80A0 /* Logo - Clear@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		7091A61319CDB69200ED80A0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7091A61419CDB6A900ED80A0 /* CASListingTableViewCell.h */,
+				7091A61519CDB6A900ED80A0 /* CASListingTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -312,6 +361,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7091A61219CDA40F00ED80A0 /* Logo - Clear@2x.png in Resources */,
+				7091A61919CDCCF500ED80A0 /* star-filled.png in Resources */,
+				7091A61D19CDCE5400ED80A0 /* star-filled@2x.png in Resources */,
+				7091A61E19CDCE5400ED80A0 /* star-hollow@2x.png in Resources */,
+				7091A61A19CDCCF500ED80A0 /* star-hollow.png in Resources */,
 				7091A5AD19CD3F8800ED80A0 /* InfoPlist.strings in Resources */,
 				7091A5B519CD3F8800ED80A0 /* Images.xcassets in Resources */,
 			);
@@ -367,9 +421,11 @@
 			files = (
 				7091A5E619CD5D2900ED80A0 /* CASUser.m in Sources */,
 				7091A5F819CD7DAC00ED80A0 /* CASUserService.m in Sources */,
+				7091A61619CDB6A900ED80A0 /* CASListingTableViewCell.m in Sources */,
 				7091A5DD19CD5CFC00ED80A0 /* CASSublet.m in Sources */,
 				7091A5DA19CD475900ED80A0 /* CASGeoPoint.m in Sources */,
 				7091A5FF19CD8DA500ED80A0 /* CASSubletService.m in Sources */,
+				7091A60F19CD9FD100ED80A0 /* CASListingsViewController.m in Sources */,
 				7091A5E019CD5D1200ED80A0 /* CASToken.m in Sources */,
 				7091A60B19CD9C0300ED80A0 /* CASServiceLocator.m in Sources */,
 				7091A5EC19CD672B00ED80A0 /* CASHTTPAPIClient.m in Sources */,

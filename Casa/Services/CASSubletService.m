@@ -43,6 +43,9 @@
     sublet.subletId = subletJson[CASAPISubletIdKey];
     sublet.price = subletJson[CASAPIPriceKey];
     sublet.address = subletJson[CASAPIAddressKey];
+    sublet.city = subletJson[CASAPICityKey];
+    sublet.roomsAvailable = subletJson[CASAPIRoomsAvailableKey];
+    sublet.totalRooms = subletJson[CASAPITotalRoomsKey];
     sublet.startDate = [self.dateFormatter dateFromString:startDateString];
     sublet.endDate = [self.dateFormatter dateFromString:endDateString];
     sublet.description = subletJson[CASAPIDescriptionKey];
@@ -64,6 +67,8 @@
                               CASAPILimitKey: query.limit,
                               CASAPILatitudeKey: query.latitude,
                               CASAPILongitudeKey: query.longitude,
+                              CASAPIRoomsAvailableKey: query.roomsAvailable,
+                              CASAPITotalRoomsKey: query.totalRooms,
                               CASAPIMinPriceKey: query.minimumPrice,
                               CASAPIMaxPriceKey: query.maximumPrice,
                               CASAPITagsKey: query.tags };
@@ -80,7 +85,10 @@
 - (BFTask *)createSubletWithLatitude:(NSNumber *)latitude
                            longitude:(NSNumber *)longitude
                              address:(NSString *)address
+                                city:(NSString *)city
                                price:(NSNumber *)price
+                      roomsAvailable:(NSNumber *)roomsAvailable
+                          totalRooms:(NSNumber *)totalRooms
                            startDate:(NSDate *)startDate
                              endDate:(NSDate *)endDate
                                 tags:(NSArray *)tags
@@ -88,7 +96,10 @@
     NSDictionary *params = @{ CASAPILatitudeKey: latitude,
                               CASAPILongitudeKey: longitude,
                               CASAPIAddressKey: address,
+                              CASAPICityKey: city,
                               CASAPIPriceKey: price,
+                              CASAPIRoomsAvailableKey: roomsAvailable,
+                              CASAPITotalRoomsKey: totalRooms,
                               CASAPIStartDateKey: startDate,
                               CASAPIEndDateKey: endDate,
                               CASAPITagsKey: tags };
@@ -105,7 +116,10 @@
             withLatitude:(NSNumber *)latitude
                longitude:(NSNumber *)longitude
                  address:(NSString *)address
+                    city:(NSString *)city
                    price:(NSNumber *)price
+          roomsAvailable:(NSNumber *)roomsAvailable
+              totalRooms:(NSNumber *)totalRooms
                startDate:(NSDate *)startDate
                  endDate:(NSDate *)endDate
                     tags:(NSArray *)tags
@@ -113,7 +127,10 @@
     NSDictionary *params = @{ CASAPILatitudeKey: latitude,
                               CASAPILongitudeKey: longitude,
                               CASAPIAddressKey: address,
+                              CASAPICityKey: city,
                               CASAPIPriceKey: price,
+                              CASAPIRoomsAvailableKey: roomsAvailable,
+                              CASAPITotalRoomsKey: totalRooms,
                               CASAPIStartDateKey: startDate,
                               CASAPIEndDateKey: endDate,
                               CASAPITagsKey: tags };

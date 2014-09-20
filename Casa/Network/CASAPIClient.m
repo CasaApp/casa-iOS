@@ -9,9 +9,12 @@ NSString * const CASAPIMinPriceKey = @"minimum_price";
 NSString * const CASAPIMaxPriceKey = @"maximum_price";
 NSString * const CASAPITagsKey = @"tags";
 NSString * const CASAPIAddressKey = @"address";
+NSString * const CASAPICityKey = @"city";
 NSString * const CASAPIStartDateKey = @"start_date";
 NSString * const CASAPIEndDateKey = @"end_date";
 NSString * const CASAPIDescriptionKey = @"description";
+NSString * const CASAPIRoomsAvailableKey = @"rooms_available";
+NSString * const CASAPITotalRoomsKey = @"rooms_total";
 
 NSString * const CASAPIUserKey = @"user";
 NSString * const CASAPIUserIdKey = @"user_id";
