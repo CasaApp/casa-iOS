@@ -46,4 +46,8 @@
 - (BFTask *)createBookmarkForSubletId:(NSNumber *)subletId;
 - (BFTask *)deleteBookmarkForSubletId:(NSNumber *)subletId;
 
+- (BFTask *)uploadImage:(UIImage *)image forSublet:(CASSublet *)sublet;
+- (BFTask *)deleteImageWithId:(NSNumber *)imageId forSubletWithId:(NSNumber *)subletId;
+- (BFTask *)getImageWithId:(NSNumber *)imageId;
+
 @end

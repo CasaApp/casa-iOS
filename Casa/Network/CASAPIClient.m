@@ -15,6 +15,7 @@ NSString * const CASAPIEndDateKey = @"end_date";
 NSString * const CASAPIDescriptionKey = @"description";
 NSString * const CASAPIRoomsAvailableKey = @"rooms_available";
 NSString * const CASAPITotalRoomsKey = @"rooms_total";
+NSString * const CASAPIImageIdsKey = @"image_ids";
 
 NSString * const CASAPIUserKey = @"user";
 NSString * const CASAPIUserIdKey = @"user_id";

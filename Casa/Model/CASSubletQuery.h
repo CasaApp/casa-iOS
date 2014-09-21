@@ -12,8 +12,7 @@
 
 @property (nonatomic, strong) NSNumber *offset;
 @property (nonatomic, strong) NSNumber *limit;
-@property (nonatomic, strong) NSNumber *latitude;
-@property (nonatomic, strong) NSNumber *longitude;
+@property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSNumber *radius;
 @property (nonatomic, strong) NSNumber *roomsAvailable;
 @property (nonatomic, strong) NSNumber *totalRooms;

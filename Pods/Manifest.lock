@@ -1,4 +1,5 @@
 PODS:
+  - ActionSheetPicker-3.0 (1.1.13)
   - AFNetworking (2.4.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
@@ -20,17 +21,48 @@ PODS:
   - AFNetworking/UIKit (2.4.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - ASMediaFocusManager (0.1)
   - Bolts (1.1.2)
+  - FieldKit (0.1.4)
+  - Google-Maps-iOS-SDK (1.7.2)
+  - JVFloatLabeledTextField (0.0.9)
+  - KVOController (1.0.1)
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core
+  - SDWebImage/Core (3.7.1)
+  - SVProgressHUD (1.0)
   - Underscore.m (0.2.1)
+  - Vertigo (0.1)
+  - XLMediaZoom (2.0.1)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0
   - AFNetworking (~> 2.0)
+  - ASMediaFocusManager (~> 0.1)
   - Bolts (~> 1.1.2)
+  - FieldKit (~> 0.1.4)
+  - Google-Maps-iOS-SDK (~> 1.7.2)
+  - JVFloatLabeledTextField (~> 0.0.9)
+  - KVOController (~> 1.0.1)
+  - SDWebImage (~> 3.7.1)
+  - SVProgressHUD
   - Underscore.m (~> 0.2.1)
+  - Vertigo
+  - XLMediaZoom
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: b617a65e9aaec586b00b3f1b6d4bc7d0783cf948
   AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
+  ASMediaFocusManager: 1f74db5e33560df20d70676d1ae513ae39f19881
   Bolts: 2635e8698a630774689441047f3465d78c48d485
+  FieldKit: 61f425318d77aeb4ee865cc8b6d7b578468d4b87
+  Google-Maps-iOS-SDK: bc3c49c73959c510cb0d339789fd3bd3bc5474d3
+  JVFloatLabeledTextField: b6c7d824d231b3c01d14692feada878808480af8
+  KVOController: e6ad4a058ab0ceed546802361adb89d322a22cf2
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
+  SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
   Underscore.m: f99c166a9fdccfb5069085b6b4263c04b817fc9f
+  Vertigo: 606222b572b2f54d5a85329b7afe1436a4859e89
+  XLMediaZoom: 3b32c799e81a0026ef4a9b4bf92f5a8bc7a4838e
 
 COCOAPODS: 0.33.1

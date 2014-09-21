@@ -48,15 +48,81 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 4
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 1
 
+// ASMediaFocusManager
+#define COCOAPODS_POD_AVAILABLE_ASMediaFocusManager
+#define COCOAPODS_VERSION_MAJOR_ASMediaFocusManager 0
+#define COCOAPODS_VERSION_MINOR_ASMediaFocusManager 1
+#define COCOAPODS_VERSION_PATCH_ASMediaFocusManager 0
+
+// ActionSheetPicker-3.0
+#define COCOAPODS_POD_AVAILABLE_ActionSheetPicker_3_0
+#define COCOAPODS_VERSION_MAJOR_ActionSheetPicker_3_0 1
+#define COCOAPODS_VERSION_MINOR_ActionSheetPicker_3_0 1
+#define COCOAPODS_VERSION_PATCH_ActionSheetPicker_3_0 13
+
 // Bolts
 #define COCOAPODS_POD_AVAILABLE_Bolts
 #define COCOAPODS_VERSION_MAJOR_Bolts 1
 #define COCOAPODS_VERSION_MINOR_Bolts 1
 #define COCOAPODS_VERSION_PATCH_Bolts 2
 
+// FieldKit
+#define COCOAPODS_POD_AVAILABLE_FieldKit
+#define COCOAPODS_VERSION_MAJOR_FieldKit 0
+#define COCOAPODS_VERSION_MINOR_FieldKit 1
+#define COCOAPODS_VERSION_PATCH_FieldKit 4
+
+// Google-Maps-iOS-SDK
+#define COCOAPODS_POD_AVAILABLE_Google_Maps_iOS_SDK
+#define COCOAPODS_VERSION_MAJOR_Google_Maps_iOS_SDK 1
+#define COCOAPODS_VERSION_MINOR_Google_Maps_iOS_SDK 7
+#define COCOAPODS_VERSION_PATCH_Google_Maps_iOS_SDK 2
+
+// JVFloatLabeledTextField
+#define COCOAPODS_POD_AVAILABLE_JVFloatLabeledTextField
+#define COCOAPODS_VERSION_MAJOR_JVFloatLabeledTextField 0
+#define COCOAPODS_VERSION_MINOR_JVFloatLabeledTextField 0
+#define COCOAPODS_VERSION_PATCH_JVFloatLabeledTextField 9
+
+// KVOController
+#define COCOAPODS_POD_AVAILABLE_KVOController
+#define COCOAPODS_VERSION_MAJOR_KVOController 1
+#define COCOAPODS_VERSION_MINOR_KVOController 0
+#define COCOAPODS_VERSION_PATCH_KVOController 1
+
+// SDWebImage
+#define COCOAPODS_POD_AVAILABLE_SDWebImage
+#define COCOAPODS_VERSION_MAJOR_SDWebImage 3
+#define COCOAPODS_VERSION_MINOR_SDWebImage 7
+#define COCOAPODS_VERSION_PATCH_SDWebImage 1
+
+// SDWebImage/Core
+#define COCOAPODS_POD_AVAILABLE_SDWebImage_Core
+#define COCOAPODS_VERSION_MAJOR_SDWebImage_Core 3
+#define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
+#define COCOAPODS_VERSION_PATCH_SDWebImage_Core 1
+
+// SVProgressHUD
+#define COCOAPODS_POD_AVAILABLE_SVProgressHUD
+#define COCOAPODS_VERSION_MAJOR_SVProgressHUD 1
+#define COCOAPODS_VERSION_MINOR_SVProgressHUD 0
+#define COCOAPODS_VERSION_PATCH_SVProgressHUD 0
+
 // Underscore.m
 #define COCOAPODS_POD_AVAILABLE_Underscore_m
 #define COCOAPODS_VERSION_MAJOR_Underscore_m 0
 #define COCOAPODS_VERSION_MINOR_Underscore_m 2
 #define COCOAPODS_VERSION_PATCH_Underscore_m 1
+
+// Vertigo
+#define COCOAPODS_POD_AVAILABLE_Vertigo
+#define COCOAPODS_VERSION_MAJOR_Vertigo 0
+#define COCOAPODS_VERSION_MINOR_Vertigo 1
+#define COCOAPODS_VERSION_PATCH_Vertigo 0
+
+// XLMediaZoom
+#define COCOAPODS_POD_AVAILABLE_XLMediaZoom
+#define COCOAPODS_VERSION_MAJOR_XLMediaZoom 2
+#define COCOAPODS_VERSION_MINOR_XLMediaZoom 0
+#define COCOAPODS_VERSION_PATCH_XLMediaZoom 1
 

@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70915FBC19CE34FB00720732 /* CASMeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70915FBB19CE34FB00720732 /* CASMeHeaderView.m */; };
+		70915FBE19CE419F00720732 /* settings-hollow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70915FBD19CE419F00720732 /* settings-hollow@2x.png */; };
+		70915FC319CE67C300720732 /* JSPoppingOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 70915FC019CE67C300720732 /* JSPoppingOverlay.m */; };
+		70915FC419CE67C300720732 /* UIView+JSPoppingOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 70915FC219CE67C300720732 /* UIView+JSPoppingOverlay.m */; };
+		70915FC719CE685B00720732 /* error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70915FC519CE685B00720732 /* error@2x.png */; };
+		70915FC819CE685B00720732 /* success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70915FC619CE685B00720732 /* success@2x.png */; };
+		70915FCA19CE6AD100720732 /* 1375710079231.png in Resources */ = {isa = PBXBuildFile; fileRef = 70915FC919CE6AD100720732 /* 1375710079231.png */; };
+		70915FCD19CE809200720732 /* CASScrollingImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70915FCC19CE809200720732 /* CASScrollingImageTableViewCell.m */; };
+		70915FD019CE840400720732 /* CASScrollingImagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70915FCF19CE840400720732 /* CASScrollingImagesView.m */; };
+		70915FD319CE84B600720732 /* CASSubletDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70915FD219CE84B600720732 /* CASSubletDetailsView.m */; };
+		70915FD519CE8FAB00720732 /* location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70915FD419CE8FAB00720732 /* location@2x.png */; };
+		70915FD819CE905C00720732 /* CASDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70915FD719CE905C00720732 /* CASDetailsTableViewCell.m */; };
+		70915FDA19CE9E1B00720732 /* location-teal.png in Resources */ = {isa = PBXBuildFile; fileRef = 70915FD919CE9E1B00720732 /* location-teal.png */; };
+		70915FDC19CEA01600720732 /* star-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70915FDB19CEA01600720732 /* star-black@2x.png */; };
 		7091A5A319CD3F8800ED80A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7091A5A219CD3F8800ED80A0 /* Foundation.framework */; };
 		7091A5A519CD3F8800ED80A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7091A5A419CD3F8800ED80A0 /* CoreGraphics.framework */; };
 		7091A5A719CD3F8800ED80A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7091A5A619CD3F8800ED80A0 /* UIKit.framework */; };
@@ -40,6 +54,15 @@
 		7091A62219CDD87500ED80A0 /* home-hollow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7091A62019CDD87500ED80A0 /* home-hollow@2x.png */; };
 		7091A62519CDEB6C00ED80A0 /* CASCreateListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A62419CDEB6C00ED80A0 /* CASCreateListingViewController.m */; };
 		7091A62819CDEBB400ED80A0 /* CASLoginSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A62719CDEBB400ED80A0 /* CASLoginSignupViewController.m */; };
+		7091A62B19CE0F4800ED80A0 /* CASSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A62A19CE0F4800ED80A0 /* CASSearchViewController.m */; };
+		7091A62D19CE130D00ED80A0 /* bookmark-hollow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7091A62C19CE130D00ED80A0 /* bookmark-hollow@2x.png */; };
+		7091A62F19CE157F00ED80A0 /* search-hollow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7091A62E19CE157F00ED80A0 /* search-hollow@2x.png */; };
+		7091A63219CE1AB000ED80A0 /* CASPriceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A63119CE1AB000ED80A0 /* CASPriceTableViewCell.m */; };
+		7091A63519CE24A300ED80A0 /* CASDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A63419CE24A300ED80A0 /* CASDetailViewController.m */; };
+		7091A63719CE24DE00ED80A0 /* user-hollow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7091A63619CE24DE00ED80A0 /* user-hollow@2x.png */; };
+		7091A63A19CE24E800ED80A0 /* CASMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7091A63919CE24E800ED80A0 /* CASMeViewController.m */; };
+		7091A63C19CE289800ED80A0 /* large.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7091A63B19CE289800ED80A0 /* large.jpg */; };
+		7091A63E19CE295900ED80A0 /* IMG_0030.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7091A63D19CE295900ED80A0 /* IMG_0030.JPG */; };
 		74C2252FF319477FAA5DCE2F /* libPods-Casa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C43D1C98C554012B275A41E /* libPods-Casa.a */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +78,27 @@
 
 /* Begin PBXFileReference section */
 		4C43D1C98C554012B275A41E /* libPods-Casa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Casa.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		70915FBA19CE34FB00720732 /* CASMeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASMeHeaderView.h; path = Views/CASMeHeaderView.h; sourceTree = "<group>"; };
+		70915FBB19CE34FB00720732 /* CASMeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASMeHeaderView.m; path = Views/CASMeHeaderView.m; sourceTree = "<group>"; };
+		70915FBD19CE419F00720732 /* settings-hollow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings-hollow@2x.png"; path = "Resources/settings-hollow@2x.png"; sourceTree = "<group>"; };
+		70915FBF19CE67C300720732 /* JSPoppingOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSPoppingOverlay.h; path = ThirdParty/JSPoppingOverlay/JSPoppingOverlay.h; sourceTree = "<group>"; };
+		70915FC019CE67C300720732 /* JSPoppingOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSPoppingOverlay.m; path = ThirdParty/JSPoppingOverlay/JSPoppingOverlay.m; sourceTree = "<group>"; };
+		70915FC119CE67C300720732 /* UIView+JSPoppingOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+JSPoppingOverlay.h"; path = "ThirdParty/JSPoppingOverlay/UIView+JSPoppingOverlay.h"; sourceTree = "<group>"; };
+		70915FC219CE67C300720732 /* UIView+JSPoppingOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+JSPoppingOverlay.m"; path = "ThirdParty/JSPoppingOverlay/UIView+JSPoppingOverlay.m"; sourceTree = "<group>"; };
+		70915FC519CE685B00720732 /* error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "error@2x.png"; path = "ThirdParty/JSPoppingOverlay/error@2x.png"; sourceTree = "<group>"; };
+		70915FC619CE685B00720732 /* success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "success@2x.png"; path = "ThirdParty/JSPoppingOverlay/success@2x.png"; sourceTree = "<group>"; };
+		70915FC919CE6AD100720732 /* 1375710079231.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1375710079231.png; sourceTree = "<group>"; };
+		70915FCB19CE809200720732 /* CASScrollingImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASScrollingImageTableViewCell.h; path = Views/CASScrollingImageTableViewCell.h; sourceTree = "<group>"; };
+		70915FCC19CE809200720732 /* CASScrollingImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASScrollingImageTableViewCell.m; path = Views/CASScrollingImageTableViewCell.m; sourceTree = "<group>"; };
+		70915FCE19CE840400720732 /* CASScrollingImagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASScrollingImagesView.h; path = Views/CASScrollingImagesView.h; sourceTree = "<group>"; };
+		70915FCF19CE840400720732 /* CASScrollingImagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASScrollingImagesView.m; path = Views/CASScrollingImagesView.m; sourceTree = "<group>"; };
+		70915FD119CE84B600720732 /* CASSubletDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASSubletDetailsView.h; path = Views/CASSubletDetailsView.h; sourceTree = "<group>"; };
+		70915FD219CE84B600720732 /* CASSubletDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASSubletDetailsView.m; path = Views/CASSubletDetailsView.m; sourceTree = "<group>"; };
+		70915FD419CE8FAB00720732 /* location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "location@2x.png"; path = "Resources/location@2x.png"; sourceTree = "<group>"; };
+		70915FD619CE905C00720732 /* CASDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASDetailsTableViewCell.h; path = Views/CASDetailsTableViewCell.h; sourceTree = "<group>"; };
+		70915FD719CE905C00720732 /* CASDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASDetailsTableViewCell.m; path = Views/CASDetailsTableViewCell.m; sourceTree = "<group>"; };
+		70915FD919CE9E1B00720732 /* location-teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "location-teal.png"; path = "Resources/location-teal.png"; sourceTree = "<group>"; };
+		70915FDB19CEA01600720732 /* star-black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-black@2x.png"; path = "Resources/star-black@2x.png"; sourceTree = "<group>"; };
 		7091A59F19CD3F8800ED80A0 /* Casa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Casa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7091A5A219CD3F8800ED80A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7091A5A419CD3F8800ED80A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -107,6 +151,19 @@
 		7091A62419CDEB6C00ED80A0 /* CASCreateListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASCreateListingViewController.m; path = Controllers/CASCreateListingViewController.m; sourceTree = "<group>"; };
 		7091A62619CDEBB400ED80A0 /* CASLoginSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASLoginSignupViewController.h; path = Controllers/CASLoginSignupViewController.h; sourceTree = "<group>"; };
 		7091A62719CDEBB400ED80A0 /* CASLoginSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASLoginSignupViewController.m; path = Controllers/CASLoginSignupViewController.m; sourceTree = "<group>"; };
+		7091A62919CE0F4800ED80A0 /* CASSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASSearchViewController.h; path = Controllers/CASSearchViewController.h; sourceTree = "<group>"; };
+		7091A62A19CE0F4800ED80A0 /* CASSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASSearchViewController.m; path = Controllers/CASSearchViewController.m; sourceTree = "<group>"; };
+		7091A62C19CE130D00ED80A0 /* bookmark-hollow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bookmark-hollow@2x.png"; path = "Resources/bookmark-hollow@2x.png"; sourceTree = "<group>"; };
+		7091A62E19CE157F00ED80A0 /* search-hollow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search-hollow@2x.png"; path = "Resources/search-hollow@2x.png"; sourceTree = "<group>"; };
+		7091A63019CE1AB000ED80A0 /* CASPriceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASPriceTableViewCell.h; path = Views/CASPriceTableViewCell.h; sourceTree = "<group>"; };
+		7091A63119CE1AB000ED80A0 /* CASPriceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASPriceTableViewCell.m; path = Views/CASPriceTableViewCell.m; sourceTree = "<group>"; };
+		7091A63319CE24A300ED80A0 /* CASDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASDetailViewController.h; path = Controllers/CASDetailViewController.h; sourceTree = "<group>"; };
+		7091A63419CE24A300ED80A0 /* CASDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASDetailViewController.m; path = Controllers/CASDetailViewController.m; sourceTree = "<group>"; };
+		7091A63619CE24DE00ED80A0 /* user-hollow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user-hollow@2x.png"; path = "Resources/user-hollow@2x.png"; sourceTree = "<group>"; };
+		7091A63819CE24E800ED80A0 /* CASMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASMeViewController.h; path = Controllers/CASMeViewController.h; sourceTree = "<group>"; };
+		7091A63919CE24E800ED80A0 /* CASMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASMeViewController.m; path = Controllers/CASMeViewController.m; sourceTree = "<group>"; };
+		7091A63B19CE289800ED80A0 /* large.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = large.jpg; sourceTree = "<group>"; };
+		7091A63D19CE295900ED80A0 /* IMG_0030.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0030.JPG; sourceTree = "<group>"; };
 		CCF9D5936FB2421EAFB4B595 /* Pods-Casa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Casa.xcconfig"; path = "Pods/Pods-Casa.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +227,10 @@
 		7091A5A819CD3F8800ED80A0 /* Casa */ = {
 			isa = PBXGroup;
 			children = (
+				70915FBF19CE67C300720732 /* JSPoppingOverlay.h */,
+				70915FC019CE67C300720732 /* JSPoppingOverlay.m */,
+				70915FC119CE67C300720732 /* UIView+JSPoppingOverlay.h */,
+				70915FC219CE67C300720732 /* UIView+JSPoppingOverlay.m */,
 				7091A5D119CD41EB00ED80A0 /* AppDelegate */,
 				7091A60C19CD9FB200ED80A0 /* Controllers */,
 				7091A5D719CD46FA00ED80A0 /* Model */,
@@ -268,10 +329,16 @@
 			children = (
 				7091A60D19CD9FD100ED80A0 /* CASListingsViewController.h */,
 				7091A60E19CD9FD100ED80A0 /* CASListingsViewController.m */,
+				7091A63319CE24A300ED80A0 /* CASDetailViewController.h */,
+				7091A63419CE24A300ED80A0 /* CASDetailViewController.m */,
 				7091A62319CDEB6C00ED80A0 /* CASCreateListingViewController.h */,
 				7091A62419CDEB6C00ED80A0 /* CASCreateListingViewController.m */,
 				7091A62619CDEBB400ED80A0 /* CASLoginSignupViewController.h */,
 				7091A62719CDEBB400ED80A0 /* CASLoginSignupViewController.m */,
+				7091A62919CE0F4800ED80A0 /* CASSearchViewController.h */,
+				7091A62A19CE0F4800ED80A0 /* CASSearchViewController.m */,
+				7091A63819CE24E800ED80A0 /* CASMeViewController.h */,
+				7091A63919CE24E800ED80A0 /* CASMeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -283,9 +350,21 @@
 				7091A61819CDCCF500ED80A0 /* star-hollow.png */,
 				7091A61B19CDCE5400ED80A0 /* star-filled@2x.png */,
 				7091A61C19CDCE5400ED80A0 /* star-hollow@2x.png */,
+				70915FDB19CEA01600720732 /* star-black@2x.png */,
 				7091A61F19CDD87500ED80A0 /* home-filled@2x.png */,
 				7091A62019CDD87500ED80A0 /* home-hollow@2x.png */,
+				7091A62C19CE130D00ED80A0 /* bookmark-hollow@2x.png */,
+				7091A62E19CE157F00ED80A0 /* search-hollow@2x.png */,
+				7091A63619CE24DE00ED80A0 /* user-hollow@2x.png */,
+				70915FBD19CE419F00720732 /* settings-hollow@2x.png */,
+				7091A63B19CE289800ED80A0 /* large.jpg */,
+				7091A63D19CE295900ED80A0 /* IMG_0030.JPG */,
+				70915FC919CE6AD100720732 /* 1375710079231.png */,
+				70915FC519CE685B00720732 /* error@2x.png */,
+				70915FC619CE685B00720732 /* success@2x.png */,
+				70915FD419CE8FAB00720732 /* location@2x.png */,
 				7091A61119CDA40F00ED80A0 /* Logo - Clear@2x.png */,
+				70915FD919CE9E1B00720732 /* location-teal.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -295,6 +374,18 @@
 			children = (
 				7091A61419CDB6A900ED80A0 /* CASListingTableViewCell.h */,
 				7091A61519CDB6A900ED80A0 /* CASListingTableViewCell.m */,
+				7091A63019CE1AB000ED80A0 /* CASPriceTableViewCell.h */,
+				7091A63119CE1AB000ED80A0 /* CASPriceTableViewCell.m */,
+				70915FBA19CE34FB00720732 /* CASMeHeaderView.h */,
+				70915FBB19CE34FB00720732 /* CASMeHeaderView.m */,
+				70915FCB19CE809200720732 /* CASScrollingImageTableViewCell.h */,
+				70915FCC19CE809200720732 /* CASScrollingImageTableViewCell.m */,
+				70915FCE19CE840400720732 /* CASScrollingImagesView.h */,
+				70915FCF19CE840400720732 /* CASScrollingImagesView.m */,
+				70915FD119CE84B600720732 /* CASSubletDetailsView.h */,
+				70915FD219CE84B600720732 /* CASSubletDetailsView.m */,
+				70915FD619CE905C00720732 /* CASDetailsTableViewCell.h */,
+				70915FD719CE905C00720732 /* CASDetailsTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -377,14 +468,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7091A63E19CE295900ED80A0 /* IMG_0030.JPG in Resources */,
 				7091A62219CDD87500ED80A0 /* home-hollow@2x.png in Resources */,
 				7091A61219CDA40F00ED80A0 /* Logo - Clear@2x.png in Resources */,
+				70915FD519CE8FAB00720732 /* location@2x.png in Resources */,
+				70915FC719CE685B00720732 /* error@2x.png in Resources */,
 				7091A61919CDCCF500ED80A0 /* star-filled.png in Resources */,
+				7091A63719CE24DE00ED80A0 /* user-hollow@2x.png in Resources */,
+				7091A63C19CE289800ED80A0 /* large.jpg in Resources */,
+				70915FBE19CE419F00720732 /* settings-hollow@2x.png in Resources */,
 				7091A61D19CDCE5400ED80A0 /* star-filled@2x.png in Resources */,
+				70915FC819CE685B00720732 /* success@2x.png in Resources */,
+				70915FCA19CE6AD100720732 /* 1375710079231.png in Resources */,
 				7091A61E19CDCE5400ED80A0 /* star-hollow@2x.png in Resources */,
 				7091A61A19CDCCF500ED80A0 /* star-hollow.png in Resources */,
+				70915FDC19CEA01600720732 /* star-black@2x.png in Resources */,
+				7091A62F19CE157F00ED80A0 /* search-hollow@2x.png in Resources */,
 				7091A62119CDD87500ED80A0 /* home-filled@2x.png in Resources */,
+				70915FDA19CE9E1B00720732 /* location-teal.png in Resources */,
 				7091A5AD19CD3F8800ED80A0 /* InfoPlist.strings in Resources */,
+				7091A62D19CE130D00ED80A0 /* bookmark-hollow@2x.png in Resources */,
 				7091A5B519CD3F8800ED80A0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,15 +542,26 @@
 			files = (
 				7091A5E619CD5D2900ED80A0 /* CASUser.m in Sources */,
 				7091A5F819CD7DAC00ED80A0 /* CASUserService.m in Sources */,
+				70915FCD19CE809200720732 /* CASScrollingImageTableViewCell.m in Sources */,
 				7091A62519CDEB6C00ED80A0 /* CASCreateListingViewController.m in Sources */,
+				70915FBC19CE34FB00720732 /* CASMeHeaderView.m in Sources */,
+				7091A63219CE1AB000ED80A0 /* CASPriceTableViewCell.m in Sources */,
+				70915FD019CE840400720732 /* CASScrollingImagesView.m in Sources */,
+				70915FC319CE67C300720732 /* JSPoppingOverlay.m in Sources */,
+				7091A63519CE24A300ED80A0 /* CASDetailViewController.m in Sources */,
 				7091A61619CDB6A900ED80A0 /* CASListingTableViewCell.m in Sources */,
+				70915FD319CE84B600720732 /* CASSubletDetailsView.m in Sources */,
 				7091A5DD19CD5CFC00ED80A0 /* CASSublet.m in Sources */,
 				7091A5DA19CD475900ED80A0 /* CASGeoPoint.m in Sources */,
 				7091A5FF19CD8DA500ED80A0 /* CASSubletService.m in Sources */,
 				7091A60F19CD9FD100ED80A0 /* CASListingsViewController.m in Sources */,
+				70915FD819CE905C00720732 /* CASDetailsTableViewCell.m in Sources */,
 				7091A5E019CD5D1200ED80A0 /* CASToken.m in Sources */,
+				70915FC419CE67C300720732 /* UIView+JSPoppingOverlay.m in Sources */,
 				7091A60B19CD9C0300ED80A0 /* CASServiceLocator.m in Sources */,
+				7091A63A19CE24E800ED80A0 /* CASMeViewController.m in Sources */,
 				7091A5EC19CD672B00ED80A0 /* CASHTTPAPIClient.m in Sources */,
+				7091A62B19CE0F4800ED80A0 /* CASSearchViewController.m in Sources */,
 				7091A5F219CD786400ED80A0 /* CASAPIClient.m in Sources */,
 				7091A60219CD904700ED80A0 /* CASSubletQuery.m in Sources */,
 				7091A5D419CD420900ED80A0 /* CASAppDelegate.m in Sources */,

@@ -24,5 +24,9 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSDate *endDate;
 @property (nonatomic, copy) NSString *description;
 @property (nonatomic, copy) NSArray *tags;
+@property (nonatomic) BOOL bookmarked;
+@property (nonatomic, strong) NSNumber *longitude;
+@property (nonatomic, strong) NSNumber *latitude;
+@property (nonatomic, strong) NSArray *imageIds;
 
 @end

@@ -25,6 +25,7 @@ extern NSString * const CASAPIEndDateKey;
 extern NSString * const CASAPIDescriptionKey;
 extern NSString * const CASAPIRoomsAvailableKey;
 extern NSString * const CASAPITotalRoomsKey;
+extern NSString * const CASAPIImageIdsKey;
 
 extern NSString * const CASAPIUserKey;
 extern NSString * const CASAPIUserIdKey;
@@ -44,6 +45,8 @@ extern NSString * const CASAPISubletIdKey;
 
 @property (nonatomic, strong, readonly) CASToken *token;
 
+- (BFTask *)getGeoPointWithParams:(NSDictionary *)params;
+
 /**
  * Sublets
  */
@@ -52,6 +55,10 @@ extern NSString * const CASAPISubletIdKey;
 - (BFTask *)getSubletWithId:(NSNumber *)subletId;
 - (BFTask *)updateSubletWithId:(NSNumber *)subletId withParams:(NSDictionary *)params;
 - (BFTask *)deleteSubletWithId:(NSNumber *)subletId;
+
+- (BFTask *)uploadImageForSubletWithId:(NSNumber *)subletId params:(NSDictionary *)params;
+- (BFTask *)deleteImageForSubletWithId:(NSNumber *)subletId imageId:(NSNumber *)imageId;
+- (BFTask *)getImageWithId:(NSNumber *)imageId;
 
 /**
  * Authentication

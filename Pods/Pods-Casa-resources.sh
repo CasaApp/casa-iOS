@@ -41,6 +41,11 @@ install_resource()
       ;;
   esac
 }
+install_resource "ASMediaFocusManager/ASMediaFocusManager/ASMediaFocusController.xib"
+install_resource "Google-Maps-iOS-SDK/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"
+install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
+install_resource "Vertigo/Vertigo/TGRImageViewController.xib"
+install_resource "${BUILT_PRODUCTS_DIR}/FieldKit.bundle"
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 if [[ "${ACTION}" == "install" ]]; then

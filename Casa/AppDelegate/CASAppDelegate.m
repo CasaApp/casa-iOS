@@ -12,11 +12,26 @@
 #import "CASSubletService.h"
 #import "CASUserService.h"
 #import "CASListingsViewController.h"
+#import "CASLoginSignupViewController.h"
+#import "CASSearchViewController.h"
+#import "CASMeViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
+
+@interface CASAppDelegate () <UITabBarControllerDelegate>
+
+@property (nonatomic, strong) CASListingsViewController *listingsVc;
+@property (nonatomic, strong) CASListingsViewController *bookmarksVc;
+@property (nonatomic, strong) CASSearchViewController *searchVc;
+@property (nonatomic, strong) CASMeViewController *meViewController;
+
+@end
 
 @implementation CASAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [GMSServices provideAPIKey:@"AIzaSyDNRVPlmhir0eeb_kxX0zX9FpZTVy7SijE"];
+    
     [self setupServices];
     [self setupWindow];
     
@@ -36,27 +51,83 @@
     [CASServiceLocator sharedInstance].subletService = subletService;
 }
 
+- (UINavigationController *)navigationControllerWithVc:(UIViewController *)vc
+{
+    UIColor *red = UIColorFromRGB(0xEA4831);
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    nav.navigationBar.barTintColor = red;
+    [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    nav.navigationBar.tintColor = [UIColor whiteColor];
+    nav.navigationBar.translucent = NO;
+    return nav;
+}
+
 - (void)setupWindow
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    UIColor *red = UIColorFromRGB(0xEA4831);
+    self.listingsVc = [[CASListingsViewController alloc] init];
+    UINavigationController *nav = [self navigationControllerWithVc:self.listingsVc];
+    nav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Listings" image:[UIImage imageNamed:@"home-hollow"] tag:0];
     
-    CASListingsViewController *listingsViewController = [[CASListingsViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:listingsViewController];
-    navigationController.navigationBar.barTintColor = red;
-    navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    navigationController.navigationBar.translucent = NO;
-    navigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Listings" image:[UIImage imageNamed:@"home-hollow"] tag:0];
+    self.bookmarksVc = [[CASListingsViewController alloc] init];
+    self.bookmarksVc.bookmarks = YES;
+    UINavigationController *nav2 = [self navigationControllerWithVc:self.bookmarksVc];
+    nav2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Bookmarks" image:[UIImage imageNamed:@"bookmark-hollow"] tag:1];
+    
+    self.searchVc = [[CASSearchViewController alloc] init];
+    UINavigationController *nav3 = [self navigationControllerWithVc:self.searchVc];
+    [self putLogoInTitle:self.searchVc];
+    nav3.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Search" image:[UIImage imageNamed:@"search-hollow"] tag:2];
+    
+    self.meViewController = [[CASMeViewController alloc] init];
+    UINavigationController *nav4 = [self navigationControllerWithVc:self.meViewController];
+    [self putLogoInTitle:self.meViewController];
+    nav4.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Me" image:[UIImage imageNamed:@"user-hollow"] tag:3];
     
     [[UITabBar appearance] setTintColor:[UIColor redColor]];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[ navigationController ];
+    tabBarController.delegate = self;
+    tabBarController.viewControllers = @[ nav, nav2,/* nav3,*/ nav4 ];
     
     self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+}
+
+- (void)putLogoInTitle:(UIViewController *)vc
+{
+    UIImage *titleLogo = [UIImage imageNamed:@"Logo - Clear"];
+    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleLogo];
+    titleImageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    vc.navigationItem.titleView = titleImageView;
+    CGRect frame = titleImageView.frame;
+    frame.size.width = roundf(titleLogo.size.width / 4.0f);
+    frame.size.height = roundf(titleLogo.size.height / 4.0f);
+    vc.navigationItem.titleView.frame = frame;
+}
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    if (![CASServiceLocator sharedInstance].userService.loggedInUser && (viewController == self.bookmarksVc.navigationController || viewController == self.meViewController.navigationController)) {
+        [self requestLoginOnVc:[(UINavigationController *)tabBarController.selectedViewController topViewController]];
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)requestLoginOnVc:(UIViewController *)vc
+{
+    CASLoginSignupViewController *loginvc = [[CASLoginSignupViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginvc];
+    nav.navigationBar.barTintColor = vc.navigationController.navigationBar.barTintColor;
+    nav.navigationBar.tintColor = [UIColor whiteColor];
+    [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    nav.navigationBar.translucent = NO;
+    [vc presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -8,6 +8,11 @@
 
 #import "CASListingTableViewCell.h"
 #import "CASSublet.h"
+#import "CASServiceLocator.h"
+#import "CASSubletService.h"
+#import <FBKVOController.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIView+JSPoppingOverlay.h"
 
 static const CGFloat kPriceBackgroundViewHeight = 30.0f;
 
@@ -15,7 +20,7 @@ static const CGFloat kPriceBackgroundViewHeight = 30.0f;
 
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, strong) UIButton *starButton;
-@property (nonatomic, strong) NSArray *subletImageViews;
+@property (nonatomic, strong) NSMutableArray *subletImageViews;
 @property (nonatomic, strong) UIScrollView *imagesScrollView;
 @property (nonatomic, strong) UIView *priceBackgroundView;
 @property (nonatomic, strong) UILabel *dollarLabel;
@@ -26,6 +31,7 @@ static const CGFloat kPriceBackgroundViewHeight = 30.0f;
 @property (nonatomic, strong) UILabel *numRoomsAvailableLabel;
 @property (nonatomic, strong) UILabel *roomsAvailableLabel;
 @property (nonatomic, strong) UIView *bottomSeparatorView;
+@property (nonatomic, strong) FBKVOController *kvoController;
 
 @end
 
@@ -35,6 +41,8 @@ static const CGFloat kPriceBackgroundViewHeight = 30.0f;
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        _kvoController = [[FBKVOController alloc] initWithObserver:self];
+        
         _pageControl = [[UIPageControl alloc] init];
         _pageControl.userInteractionEnabled = NO;
         _imagesScrollView = [[UIScrollView alloc] init];
@@ -47,12 +55,13 @@ static const CGFloat kPriceBackgroundViewHeight = 30.0f;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
         [_imagesScrollView addGestureRecognizer:tap];
         
-        UIImageView *subletImageView = [[UIImageView alloc] init];
-        subletImageView.backgroundColor = [UIColor blueColor];
-        [_imagesScrollView addSubview:subletImageView];
-        
-        UIImageView *subletImageView2 = [[UIImageView alloc] init];
-        [_imagesScrollView addSubview:subletImageView2];
+//        UIImageView *subletImageView = [[UIImageView alloc] init];
+//        subletImageView.contentMode = UIViewContentModeScaleAspectFill;
+//        [_imagesScrollView addSubview:subletImageView];
+//        
+//        UIImageView *subletImageView2 = [[UIImageView alloc] init];
+//        subletImageView2.contentMode = UIViewContentModeScaleAspectFill;
+//        [_imagesScrollView addSubview:subletImageView2];
         
         _starButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_starButton addTarget:self action:@selector(starButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -60,7 +69,8 @@ static const CGFloat kPriceBackgroundViewHeight = 30.0f;
         [_starButton setImage:[UIImage imageNamed:@"star-filled"] forState:UIControlStateSelected];
         [self addSubview:_starButton];
         
-        _subletImageViews = @[ subletImageView, subletImageView2 ];
+//        _subletImageViews = [@[ subletImageView, subletImageView2 ] mutableCopy];
+        _subletImageViews = [NSMutableArray array];
         _pageControl.numberOfPages = [_subletImageViews count];
         
         _priceBackgroundView = [[UIView alloc] init];
@@ -74,7 +84,7 @@ static const CGFloat kPriceBackgroundViewHeight = 30.0f;
         [_priceBackgroundView addSubview:_dollarLabel];
         
         _priceLabel = [self priceStyledLabel];
-        _priceLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:19.0f];
+        _priceLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:21.0f];
 //        _priceLabel.backgroundColor = [UIColor blueColor];
         [_priceBackgroundView addSubview:_priceLabel];
         
@@ -119,6 +129,21 @@ static const CGFloat kPriceBackgroundViewHeight = 30.0f;
     return self;
 }
 
+- (void)setSublet:(CASSublet *)sublet
+{
+    _sublet = sublet;
+    
+    [self.kvoController observe:sublet keyPath:@"bookmarked" options:NSKeyValueObservingOptionNew block:^(CASListingTableViewCell *observer, CASSublet *sublet, NSDictionary *change) {
+        BOOL newVal = [change[NSKeyValueChangeNewKey] boolValue];
+        if (newVal) {
+            [self.imagesScrollView showSuccessPoppingOverlayWithMessage:@"Bookmarked!"];
+        } else {
+            
+        }
+        self.starButton.selected = newVal;
+    }];
+}
+
 - (UILabel *)priceStyledLabel
 {
     UILabel *label = [[UILabel alloc] init];
@@ -142,6 +167,7 @@ static const CGFloat kPriceBackgroundViewHeight = 30.0f;
     frame.origin.x = 10.0f;
     frame.origin.y = 10.0f;
     self.starButton.frame = frame;
+    self.starButton.selected = self.sublet.bookmarked;
     
     frame.origin.x = 0.0f;
     frame.origin.y = 0.0f;
@@ -151,23 +177,21 @@ static const CGFloat kPriceBackgroundViewHeight = 30.0f;
     
     __block CGFloat contentWidth = 0.0f;
     
-    [self.subletImageViews enumerateObjectsUsingBlock:^(UIImageView *subletImageView, NSUInteger idx, BOOL *stop) {
+    [self.sublet.imageIds enumerateObjectsUsingBlock:^(NSNumber *imageId, NSUInteger idx, BOOL *stop) {
         frame.origin.x = idx * CGRectGetWidth(self.bounds);
         contentWidth += CGRectGetWidth(self.bounds);
-        subletImageView.frame = frame;
         
-        switch (idx % 2) {
-            case 0: {
-                subletImageView.backgroundColor = [UIColor blueColor];
-                break;
-            }
-            default: {
-                subletImageView.backgroundColor = [UIColor redColor];
-                break;
-            }
+        if (idx >= [self.subletImageViews count]) {
+            UIImageView *subletImageView = [[UIImageView alloc] init];
+            subletImageView.frame = frame;
+            subletImageView.contentMode = UIViewContentModeScaleAspectFill;
+            [subletImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://casa.tpcstld.me/api/images/%@", self.sublet.imageIds[idx]]]];
+            [self.subletImageViews addObject:subletImageView];
+            [self.imagesScrollView addSubview:subletImageView];
         }
     }];
     
+    self.pageControl.numberOfPages = [self.sublet.imageIds count];
     self.imagesScrollView.contentSize = CGSizeMake(contentWidth, imageViewHeight);
     
     [_pageControl sizeToFit];
@@ -195,7 +219,7 @@ static const CGFloat kPriceBackgroundViewHeight = 30.0f;
     [self.perMonthLabel sizeToFit];
     frame = self.perMonthLabel.frame;
     frame.origin.x = CGRectGetMinX(self.priceLabel.frame);
-    frame.origin.y = CGRectGetMaxY(self.priceLabel.frame) - 2.0f;
+    frame.origin.y = CGRectGetMaxY(self.priceLabel.frame) - 3.5f;
     frame.size.width = CGRectGetWidth(self.priceLabel.bounds);
     self.perMonthLabel.frame = frame;
     
@@ -256,7 +280,7 @@ static const CGFloat kPriceBackgroundViewHeight = 30.0f;
         return;
     }
     
-    sender.selected = !sender.selected;
+//    sender.selected = !sender.selected;
     [self.delegate listingTableViewCell:self didTapStarForSublet:self.sublet];
 }
 

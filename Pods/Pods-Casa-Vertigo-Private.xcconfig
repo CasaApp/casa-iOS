@@ -1,0 +1,5 @@
+#include "Pods-Casa-Vertigo.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/Vertigo" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/ASMediaFocusManager" "${PODS_ROOT}/Headers/ActionSheetPicker-3.0" "${PODS_ROOT}/Headers/Bolts" "${PODS_ROOT}/Headers/FieldKit" "${PODS_ROOT}/Headers/Google-Maps-iOS-SDK" "${PODS_ROOT}/Headers/Google-Maps-iOS-SDK/GoogleMaps" "${PODS_ROOT}/Headers/JVFloatLabeledTextField" "${PODS_ROOT}/Headers/KVOController" "${PODS_ROOT}/Headers/SDWebImage" "${PODS_ROOT}/Headers/SVProgressHUD" "${PODS_ROOT}/Headers/Underscore.m" "${PODS_ROOT}/Headers/Vertigo" "${PODS_ROOT}/Headers/XLMediaZoom"
+OTHER_LDFLAGS = -ObjC ${PODS_CASA_VERTIGO_OTHER_LDFLAGS}
+PODS_ROOT = ${SRCROOT}

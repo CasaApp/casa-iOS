@@ -10,4 +10,6 @@
 
 @interface CASListingsViewController : UITableViewController
 
+@property (nonatomic) BOOL bookmarks;
+
 @end

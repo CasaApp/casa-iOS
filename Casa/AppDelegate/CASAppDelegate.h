@@ -12,4 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+- (void)putLogoInTitle:(UIViewController *)vc;
+- (UINavigationController *)navigationControllerWithVc:(UIViewController *)vc;
+- (void)requestLoginOnVc:(UIViewController *)vc;
+
 @end

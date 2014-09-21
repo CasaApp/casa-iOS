@@ -11,13 +11,16 @@
 #import "CASHTTPAPIClient.h"
 #import "CASToken.h"
 
-#define API_SUBLETS                     @"/api/sublets"
-#define API_SUBLET(subletId)            [NSString stringWithFormat:@"%@/%@", API_SUBLETS, subletId]
-#define API_AUTHENTICATE                @"/api/authenticate"
-#define API_USERS                       @"/api/users"
-#define API_USER(userId)                [NSString stringWithFormat:@"%@/%@", API_USERS, userId]
-#define API_BOOKMARKS(userId)           [NSString stringWithFormat:@"%@/bookmarks", API_USER(userId)]
-#define API_BOOKMARK(userId, subletId)  [NSString stringWithFormat:@"%@/%@", API_BOOKMARKS(userId), subletId]
+#define API_SUBLETS                         @"/api/sublets"
+#define API_SUBLET(subletId)                [NSString stringWithFormat:@"%@/%@", API_SUBLETS, subletId]
+#define API_IMAGES(subletId)                [NSString stringWithFormat:@"%@/images", API_SUBLET(subletId)]
+#define API_DELETE_IMAGE(subletId, imageId) [NSString stringWithFormat:@"%@/%@", API_IMAGES(subletId), imageId]
+#define API_GET_IMAGE(imageId)              [NSString stringWithFormat:@"/api/images/%@", imageId]
+#define API_AUTHENTICATE                    @"/api/authenticate"
+#define API_USERS                           @"/api/users"
+#define API_USER(userId)                    [NSString stringWithFormat:@"%@/%@", API_USERS, userId]
+#define API_BOOKMARKS(userId)               [NSString stringWithFormat:@"%@/bookmarks", API_USER(userId)]
+#define API_BOOKMARK(userId, subletId)      [NSString stringWithFormat:@"%@/%@", API_BOOKMARKS(userId), subletId]
 
 typedef enum : NSUInteger {
     HTTPRequestMethodGet,
@@ -27,6 +30,7 @@ typedef enum : NSUInteger {
 } HTTPRequestMethod;
 
 static NSString * const CASExpiryDateKey = @"CASExpiryDateKey";
+static NSString * const GoogleAPIKey = @"AIzaSyDNRVPlmhir0eeb_kxX0zX9FpZTVy7SijE";
 
 @interface CASHTTPAPIClient ()
 
@@ -42,11 +46,22 @@ static NSString * const CASExpiryDateKey = @"CASExpiryDateKey";
     if (self = [super init]) {
         NSURL *baseUrl = [NSURL URLWithString:@"http://casa.tpcstld.me"];
         _httpRequestOperationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseUrl];
-//        _httpRequestOperationManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+        _httpRequestOperationManager.requestSerializer = [AFJSONRequestSerializer serializer];
+        _httpRequestOperationManager.responseSerializer = [AFJSONResponseSerializer serializer];
+        _httpRequestOperationManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"image/png", @"application/json", nil];
         
         self.token = [CASToken loadState];
+        
+        [self.httpRequestOperationManager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", self.token.token] forHTTPHeaderField:@"Authorization"];
     }
     return self;
+}
+
+- (BFTask *)getGeoPointWithParams:(NSDictionary *)params
+{
+    NSMutableDictionary *mut = [params mutableCopy];
+    mut[@"key"] = GoogleAPIKey;
+    return [self taskWithMethod:HTTPRequestMethodGet path:@"https://maps.googleapis.com/maps/api/geocode/json" params:mut];
 }
 
 - (BFTask *)taskWithMethod:(HTTPRequestMethod)method path:(NSString *)path params:(NSDictionary *)params
@@ -92,6 +107,8 @@ static NSString * const CASExpiryDateKey = @"CASExpiryDateKey";
     token.expiryDate = [[NSDate date] dateByAddingTimeInterval:secondsUntilExpiry];
     self.token = token;
     [token saveState];
+    
+    [self.httpRequestOperationManager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", token.token] forHTTPHeaderField:@"Authorization"];
 }
 
 #pragma mark - Sublets
@@ -119,6 +136,31 @@ static NSString * const CASExpiryDateKey = @"CASExpiryDateKey";
 - (BFTask *)deleteSubletWithId:(NSNumber *)subletId
 {
     return [self taskWithMethod:HTTPRequestMethodDelete path:API_SUBLET(subletId) params:nil];
+}
+
+- (BFTask *)uploadImageForSubletWithId:(NSNumber *)subletId params:(NSDictionary *)params
+{
+    BFTaskCompletionSource *task = [BFTaskCompletionSource taskCompletionSource];
+    
+    [self.httpRequestOperationManager POST:API_IMAGES(subletId) parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:params[@"image"] name:@"image" fileName:@"image.png" mimeType:@"image/png"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [task setResult:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [task setError:error];
+    }];
+    
+    return task.task;
+}
+
+- (BFTask *)deleteImageForSubletWithId:(NSNumber *)subletId imageId:(NSNumber *)imageId
+{
+    return [self taskWithMethod:HTTPRequestMethodDelete path:API_DELETE_IMAGE(subletId, imageId) params:nil];
+}
+
+- (BFTask *)getImageWithId:(NSNumber *)imageId
+{
+    return [self taskWithMethod:HTTPRequestMethodGet path:API_GET_IMAGE(imageId) params:nil];
 }
 
 #pragma mark - Authentication
