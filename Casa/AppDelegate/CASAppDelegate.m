@@ -16,6 +16,7 @@
 #import "CASSearchViewController.h"
 #import "CASMeViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface CASAppDelegate () <UITabBarControllerDelegate>
 
@@ -31,6 +32,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [GMSServices provideAPIKey:@"AIzaSyDNRVPlmhir0eeb_kxX0zX9FpZTVy7SijE"];
+    [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+    [SVProgressHUD setBackgroundColor:[UIColor blackColor]];
     
     [self setupServices];
     [self setupWindow];

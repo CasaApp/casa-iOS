@@ -14,6 +14,7 @@
 #import "CASServiceLocator.h"
 #import "CASSubletService.h"
 #import "CASSubletQuery.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface CASSearchViewController () <UITextFieldDelegate>
 
@@ -146,9 +147,11 @@
 {
     if (textField.tag == 1) {
         [ActionSheetDatePicker showPickerWithTitle:@"Select a start date" datePickerMode:UIDatePickerModeDate selectedDate:[NSDate date] target:self action:@selector(startDate:) origin:textField];
+        [self hideKeyboards];
         return NO;
     } else if (textField.tag == 2) {
         [ActionSheetDatePicker showPickerWithTitle:@"Select an end date" datePickerMode:UIDatePickerModeDate selectedDate:[NSDate date] target:self action:@selector(endDate:) origin:textField];
+        [self hideKeyboards];
         return NO;
     }
     
@@ -165,6 +168,12 @@
     self.endDateTextField.text = [self.dateFormatter stringFromDate:sender];
 }
 
+- (void)hideKeyboards
+{
+    [self.addressTextField resignFirstResponder];
+    [self.distanceTextField resignFirstResponder];
+}
+
 - (void)search:(id)sender
 {
     CASSubletQuery *query = [[CASSubletQuery alloc] init];
@@ -172,7 +181,15 @@
     query.radius = @([self.distanceTextField.text integerValue]);
     query.startDate = [self.dateFormatter dateFromString:self.startDateTextField.text];
     query.endDate = [self.dateFormatter dateFromString:self.endDateTextField.text];
-    [self.delegate searchViewControllerDidStartSearchingWithTask:[[CASServiceLocator sharedInstance].subletService getSubletsWithQuery:query] query:query];
+    [[[CASServiceLocator sharedInstance].subletService getSubletsWithQuery:query] continueWithSuccessBlock:^id(BFTask *task) {
+        if ([task.result count] < 1) {
+            [SVProgressHUD showErrorWithStatus:@"No sublets found!"];
+            return nil;
+        }
+        
+        [self.delegate searchViewControllerDidStartSearchingWithTask:task query:query];
+        return nil;
+    }];
 }
 
 @end

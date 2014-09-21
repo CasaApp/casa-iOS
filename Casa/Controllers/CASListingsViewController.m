@@ -270,16 +270,23 @@
 - (void)searchViewControllerDidStartSearchingWithTask:(BFTask *)task query:(CASSubletQuery *)query
 {
     [task continueWithBlock:^id(BFTask *task) {
-        [self dismissViewControllerAnimated:YES completion:nil];
         if ([task.result count] < 1) {
-            [SVProgressHUD showErrorWithStatus:@"No sublets found!"];
+            [self dismissViewControllerAnimated:YES completion:^{
+                [SVProgressHUD showErrorWithStatus:@"No sublets found!"];
+            }];
             return nil;
         }
+        [self dismissViewControllerAnimated:YES completion:nil];
         self.tableData = task.result;
         self.currentQuery = query;
         [self.tableView reloadData];
         return nil;
     }];
+}
+
+- (void)dismissVC
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
